@@ -7,5 +7,6 @@
   - Cuci Baju
   - Baby Sister
 - Petukang
+- Blog
 ## Waktu Pengembangan
 02 - 04 Juli 2021
