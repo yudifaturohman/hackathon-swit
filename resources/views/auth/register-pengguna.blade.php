@@ -14,7 +14,7 @@
               <div class="col-12">
                 <div class="title_sign">
                   <h2>Buat akun baru</h2>
-                  <p>Kamu udah punya akun? Langsung <a href="#">Masuk</a> aja</p>
+                  <p>Kamu udah punya akun? Langsung <a href="{{route('login')}}">Masuk</a> aja</p>
                   @if (session()->has('pesan'))
                   <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('pesan') }}
