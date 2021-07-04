@@ -33,7 +33,7 @@
                 <td>{{$loop->index + 1}}</td>
                 <td>{{$item->namaBarang}}</td>
                 <td>{{$item->deskripsi}}</td>
-                <td>Rp. {{$item->harga}}</td>
+                <td>@currency($item->harga)</td>
                 <td>{{$item->stok}}</td>
                 <td>{{$item->namaToko}} - {{$item->nama}}</td>
                 <td>
