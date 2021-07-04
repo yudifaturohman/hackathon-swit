@@ -69,7 +69,8 @@
                                         <span data-hover="Masuk">Masuk</span>
                                     </div>
                                 </a>
-                                <a href="{{ route('pendaftaran') }}" class="btn btn_sm_primary bg-blue c-white effect-letter rounded-8">
+                                <a href="{{ route('pendaftaran') }}"
+                                    class="btn btn_sm_primary bg-blue c-white effect-letter rounded-8">
                                     Daftar
                                 </a>
                             </div>
@@ -142,6 +143,10 @@
                                             <p class="short_desc">
                                                 {{ $item->deskripsi }}
                                             </p>
+                                        </a>
+                                        <a href="tel:{{$item->telp}}" class="btn btn_sm_primary p bg-red c-white rounded-12">
+                                            <i class="tio shopping_cart mr-1 align-middle font-s-16"></i>
+                                            <span>Hubungi</span>
                                         </a>
                                     </div>
                                 </div>

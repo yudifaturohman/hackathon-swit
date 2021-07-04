@@ -374,11 +374,11 @@ Beranda
                             </div>
                             <div class="swiper-wrapper"
                                 style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
-
+                                @foreach ($blog as $itemBlog)
                                 <div class="swiper-slide swiper-slide-active" style="width: 350px; margin-right: 30px;">
                                     <div class="grid_blog_avatar">
                                         <div class="cover_blog">
-                                            <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                            <img src="{{ url(Storage::url('blog/'.$itemBlog->gambar)) }}" alt="">
                                         </div>
                                         <div class="body_blog">
                                             <a href="#">
@@ -386,28 +386,27 @@ Beranda
                                                     <img src="{{ asset('front/img/persons/01.png') }}" alt="">
                                                     <div class="media-body">
                                                         <div class="txt">
-                                                            <h3>Olivia DeSmit</h3>
-                                                            <time>27 Sep, 2020</time>
+                                                            <h3>Administrator</h3>
+                                                            <time>{{ $itemBlog->created_at }}</time>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </a>
                                             <a href="single-blog.html" class="link_blog">
                                                 <h4 class="title_blog">
-                                                    As climate warms, Ecuador fights fires with forecasts
+                                                    {{ $itemBlog->judul }}
                                                 </h4>
                                                 <p class="short_desc">
-                                                    Vitae semper quis lectus nulla at volutpat diam. Sed
-                                                    viverra ipsum
-                                                    nunc aliquet .
+                                                    {{ $itemBlog->konten }}
                                                 </p>
                                             </a>
                                         </div>
                                     </div>
                                     <!-- End grid_blog_avatar -->
                                 </div>
+                                @endforeach
 
-                                <div class="swiper-slide swiper-slide-next" style="width: 350px; margin-right: 30px;">
+                                {{-- <div class="swiper-slide swiper-slide-next" style="width: 350px; margin-right: 30px;">
                                     <div class="grid_blog_avatar">
                                         <div class="cover_blog">
                                             <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
@@ -569,10 +568,7 @@ Beranda
                                         </div>
                                     </div>
                                     <!-- End grid_blog_avatar -->
-                                </div>
-
-
-
+                                </div> --}}
                             </div>
 
                             <!-- Add Arrows -->

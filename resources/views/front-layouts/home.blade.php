@@ -69,7 +69,8 @@
                                         <span data-hover="Masuk">Masuk</span>
                                     </div>
                                 </a>
-                                <a href="{{ route('pendaftaran') }}" class="btn btn_sm_primary bg-blue c-white effect-letter rounded-8">
+                                <a href="{{ route('pendaftaran') }}"
+                                    class="btn btn_sm_primary bg-blue c-white effect-letter rounded-8">
                                     Daftar
                                 </a>
                             </div>
@@ -98,13 +99,13 @@
                                             <div class="banner_title">
                                                 <h1>Home Camp</h1>
                                                 <p>
-                                                    Liburan Bersama Keluarga dengan suasana alam terbuka cukup dirumah aja.
+                                                    Liburan Bersama Keluarga dengan suasana alam terbuka cukup dirumah
+                                                    aja.
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="col-md-7">
-                                            <img class="ill_05"
-                                                src="{{ asset('front/img/agency/staycation.png') }}" />
+                                            <img class="ill_05" src="{{ asset('front/img/agency/staycation.png') }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -149,7 +150,8 @@
                                             <div class="av_person">
                                                 <div class="avatar🐱">
                                                     <img class="rounded-circle"
-                                                        src="{{ url(Storage::url('penyedia_jasa/'.$item->gambar)) }}" width="150">
+                                                        src="{{ url(Storage::url('penyedia_jasa/'.$item->gambar)) }}"
+                                                        width="150">
                                                 </div>
                                                 <div class="info_name" style="text-align:center; padding-top:10px">
                                                     <p>
@@ -457,12 +459,13 @@
                                         </div>
                                         <div class="swiper-wrapper"
                                             style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
-
+                                            @foreach ($blog as $itemBlog)
                                             <div class="swiper-slide swiper-slide-active"
                                                 style="width: 350px; margin-right: 30px;">
                                                 <div class="grid_blog_avatar">
                                                     <div class="cover_blog">
-                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                                        <img src="{{ url(Storage::url('blog/'.$itemBlog->gambar)) }}"
+                                                            alt="">
                                                     </div>
                                                     <div class="body_blog">
                                                         <a href="#">
@@ -471,322 +474,311 @@
                                                                     alt="">
                                                                 <div class="media-body">
                                                                     <div class="txt">
-                                                                        <h3>Olivia DeSmit</h3>
-                                                                        <time>27 Sep, 2020</time>
+                                                                        <h3>Administrator</h3>
+                                                                        <time>{{ $itemBlog->created_at }}</time>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </a>
                                                         <a href="single-blog.html" class="link_blog">
                                                             <h4 class="title_blog">
-                                                                As climate warms, Ecuador fights fires with forecasts
+                                                                {{ $itemBlog->judul }}
                                                             </h4>
                                                             <p class="short_desc">
-                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
-                                                                viverra ipsum
-                                                                nunc aliquet .
+                                                                {{ $itemBlog->konten }}
                                                             </p>
                                                         </a>
                                                     </div>
                                                 </div>
                                                 <!-- End grid_blog_avatar -->
                                             </div>
+                                            @endforeach
 
-                                            <div class="swiper-slide swiper-slide-next"
-                                                style="width: 350px; margin-right: 30px;">
-                                                <div class="grid_blog_avatar">
-                                                    <div class="cover_blog">
-                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
-                                                    </div>
-                                                    <div class="body_blog">
-                                                        <a href="#">
-                                                            <div class="person media">
-                                                                <img src="{{ asset('front/img/persons/01.png') }}"
-                                                                    alt="">
-                                                                <div class="media-body">
-                                                                    <div class="txt">
-                                                                        <h3>Paul Brasseur</h3>
-                                                                        <time>30 Sep, 2020</time>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-
-                                                        <a href="single-blog.html" class="link_blog">
-                                                            <h4 class="title_blog">
-                                                                Funds adding fuel in tech’s climate race
-                                                            </h4>
-                                                            <p class="short_desc">
-                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
-                                                                viverra ipsum nunc aliquet .
-                                                            </p>
-                                                        </a>
-
+                                            {{-- <div class="swiper-slide swiper-slide-next" style="width: 350px; margin-right: 30px;">
+                                    <div class="grid_blog_avatar">
+                                        <div class="cover_blog">
+                                            <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                        </div>
+                                        <div class="body_blog">
+                                            <a href="#">
+                                                <div class="person media">
+                                                    <img src="{{ asset('front/img/persons/01.png') }}" alt="">
+                                                    <div class="media-body">
+                                                        <div class="txt">
+                                                            <h3>Paul Brasseur</h3>
+                                                            <time>30 Sep, 2020</time>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <!-- End grid_blog_avatar -->
-                                            </div>
+                                            </a>
 
-                                            <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
-                                                <div class="grid_blog_avatar">
-                                                    <div class="cover_blog">
-                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
-                                                    </div>
-                                                    <div class="body_blog">
-                                                        <a href="#">
-                                                            <div class="person media">
-                                                                <img src="{{ asset('front/img/persons/01.png') }}"
-                                                                    alt="">
-                                                                <div class="media-body">
-                                                                    <div class="txt">
-                                                                        <h3>Merlin Roux</h3>
-                                                                        <time>24 Sep, 2020</time>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-
-                                                        <a href="single-blog.html" class="link_blog">
-                                                            <h4 class="title_blog">
-                                                                Satellite tags shed light on sea turtle treks
-                                                            </h4>
-                                                            <p class="short_desc">
-                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
-                                                                viverra ipsum nunc aliquet .
-                                                            </p>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- End grid_blog_avatar -->
-                                            </div>
-
-                                            <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
-                                                <div class="grid_blog_avatar">
-                                                    <div class="cover_blog">
-                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
-                                                    </div>
-                                                    <div class="body_blog">
-                                                        <a href="#">
-                                                            <div class="person media">
-                                                                <img src="{{ asset('front/img/persons/01.png') }}"
-                                                                    alt="">
-                                                                <div class="media-body">
-                                                                    <div class="txt">
-                                                                        <h3>Olivia DeSmit</h3>
-                                                                        <time>27 Sep, 2020</time>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a href="single-blog.html" class="link_blog">
-                                                            <h4 class="title_blog">
-                                                                As climate warms, Ecuador fights fires with forecasts
-                                                            </h4>
-                                                            <p class="short_desc">
-                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
-                                                                viverra ipsum
-                                                                nunc aliquet .
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <!-- End grid_blog_avatar -->
-                                            </div>
-
-                                            <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
-                                                <div class="grid_blog_avatar">
-                                                    <div class="cover_blog">
-                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
-                                                    </div>
-                                                    <div class="body_blog">
-                                                        <a href="#">
-                                                            <div class="person media">
-                                                                <img src="{{ asset('front/img/persons/01.png') }}"
-                                                                    alt="">
-                                                                <div class="media-body">
-                                                                    <div class="txt">
-                                                                        <h3>Paul Brasseur</h3>
-                                                                        <time>30 Sep, 2020</time>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-
-                                                        <a href="single-blog.html" class="link_blog">
-                                                            <h4 class="title_blog">
-                                                                Funds adding fuel in tech’s climate race
-                                                            </h4>
-                                                            <p class="short_desc">
-                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
-                                                                viverra ipsum nunc aliquet .
-                                                            </p>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- End grid_blog_avatar -->
-                                            </div>
-
-                                            <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
-                                                <div class="grid_blog_avatar">
-                                                    <div class="cover_blog">
-                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
-                                                    </div>
-                                                    <div class="body_blog">
-                                                        <a href="#">
-                                                            <div class="person media">
-                                                                <img src="{{ asset('front/img/persons/01.png') }}"
-                                                                    alt="">
-                                                                <div class="media-body">
-                                                                    <div class="txt">
-                                                                        <h3>Merlin Roux</h3>
-                                                                        <time>24 Sep, 2020</time>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-
-                                                        <a href="single-blog.html" class="link_blog">
-                                                            <h4 class="title_blog">
-                                                                Satellite tags shed light on sea turtle treks
-                                                            </h4>
-                                                            <p class="short_desc">
-                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
-                                                                viverra ipsum nunc aliquet .
-                                                            </p>
-                                                        </a>
-
-                                                    </div>
-                                                </div>
-                                                <!-- End grid_blog_avatar -->
-                                            </div>
-
-
+                                            <a href="single-blog.html" class="link_blog">
+                                                <h4 class="title_blog">
+                                                    Funds adding fuel in tech’s climate race
+                                                </h4>
+                                                <p class="short_desc">
+                                                    Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                    viverra ipsum nunc aliquet .
+                                                </p>
+                                            </a>
 
                                         </div>
-
-                                        <!-- Add Arrows -->
-                                        <div class="swiper-button-next" tabindex="0" role="button"
-                                            aria-label="Next slide" aria-disabled="false">
-                                            <i class="tio chevron_right"></i>
-                                        </div>
-                                        <div class="swiper-button-prev swiper-button-disabled" tabindex="0"
-                                            role="button" aria-label="Previous slide" aria-disabled="true">
-                                            <i class="tio chevron_left"></i>
-                                        </div>
-
-                                        <span class="swiper-notification" aria-live="assertive"
-                                            aria-atomic="true"></span>
                                     </div>
-
+                                    <!-- End grid_blog_avatar -->
                                 </div>
+
+                                <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
+                                    <div class="grid_blog_avatar">
+                                        <div class="cover_blog">
+                                            <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                        </div>
+                                        <div class="body_blog">
+                                            <a href="#">
+                                                <div class="person media">
+                                                    <img src="{{ asset('front/img/persons/01.png') }}" alt="">
+                                                    <div class="media-body">
+                                                        <div class="txt">
+                                                            <h3>Merlin Roux</h3>
+                                                            <time>24 Sep, 2020</time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                            <a href="single-blog.html" class="link_blog">
+                                                <h4 class="title_blog">
+                                                    Satellite tags shed light on sea turtle treks
+                                                </h4>
+                                                <p class="short_desc">
+                                                    Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                    viverra ipsum nunc aliquet .
+                                                </p>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <!-- End grid_blog_avatar -->
+                                </div>
+
+                                <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
+                                    <div class="grid_blog_avatar">
+                                        <div class="cover_blog">
+                                            <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                        </div>
+                                        <div class="body_blog">
+                                            <a href="#">
+                                                <div class="person media">
+                                                    <img src="{{ asset('front/img/persons/01.png') }}" alt="">
+                                                    <div class="media-body">
+                                                        <div class="txt">
+                                                            <h3>Olivia DeSmit</h3>
+                                                            <time>27 Sep, 2020</time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="single-blog.html" class="link_blog">
+                                                <h4 class="title_blog">
+                                                    As climate warms, Ecuador fights fires with forecasts
+                                                </h4>
+                                                <p class="short_desc">
+                                                    Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                    viverra ipsum
+                                                    nunc aliquet .
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- End grid_blog_avatar -->
+                                </div>
+
+                                <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
+                                    <div class="grid_blog_avatar">
+                                        <div class="cover_blog">
+                                            <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                        </div>
+                                        <div class="body_blog">
+                                            <a href="#">
+                                                <div class="person media">
+                                                    <img src="{{ asset('front/img/persons/01.png') }}" alt="">
+                                                    <div class="media-body">
+                                                        <div class="txt">
+                                                            <h3>Paul Brasseur</h3>
+                                                            <time>30 Sep, 2020</time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                            <a href="single-blog.html" class="link_blog">
+                                                <h4 class="title_blog">
+                                                    Funds adding fuel in tech’s climate race
+                                                </h4>
+                                                <p class="short_desc">
+                                                    Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                    viverra ipsum nunc aliquet .
+                                                </p>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <!-- End grid_blog_avatar -->
+                                </div>
+
+                                <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
+                                    <div class="grid_blog_avatar">
+                                        <div class="cover_blog">
+                                            <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                        </div>
+                                        <div class="body_blog">
+                                            <a href="#">
+                                                <div class="person media">
+                                                    <img src="{{ asset('front/img/persons/01.png') }}" alt="">
+                                                    <div class="media-body">
+                                                        <div class="txt">
+                                                            <h3>Merlin Roux</h3>
+                                                            <time>24 Sep, 2020</time>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                            <a href="single-blog.html" class="link_blog">
+                                                <h4 class="title_blog">
+                                                    Satellite tags shed light on sea turtle treks
+                                                </h4>
+                                                <p class="short_desc">
+                                                    Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                    viverra ipsum nunc aliquet .
+                                                </p>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                    <!-- End grid_blog_avatar -->
+                                </div> --}}
                             </div>
-                        </div>
 
-                    </div>
-                </section>
-
-            </main>
-            <!-- end main -->
-        </div>
-        <!-- [id] content -->
-
-        <!-- footr -->
-        <footer class="defalut-footer foot_demo3 light margin-t-12 padding-py-8">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                        <div class="item_about">
-                            <a class="logo" href="#">
-                                <img src="{{ asset('front/img/onta.png') }}" alt="logo" />
-                            </a>
-                            <p>
-                                Onta (Online Travel Agent)
-                            </p>
-                            <div class="address">
-                                <span>mail@app.com</span>
-                                <span>Telpon: <a href="tel:0254200252">(0254) 200-252</a></span>
-                                <span>Fax: <a href="#">(0254) 201-952</a></span>
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"
+                                aria-disabled="false">
+                                <i class="tio chevron_right"></i>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-6 col-lg-2">
-                        <div class="item_links">
-                            <h4>Sosial Media</h4>
-                            <a class="nav-link" href="">Website</a>
-                            <a class="nav-link" href="">Facebook</a>
-                            <a class="nav-link" href="">Twitter</a>
-                            <a class="nav-link" href="">Instagram</a>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-6 col-lg-2">
-                        <div class="item_links">
-                            <h4>Menu</h4>
-                            <a class="nav-link" href="">Camp</a>
-                            <a class="nav-link" href="">Hotel</a>
-                            {{-- <a class="nav-link" href="">ART</a> --}}
-                            <a class="nav-link" href="">Hubungi Kami</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mt-4 mt-lg-0">
-                        <div class="item_subscribe">
-                            <h4>ONTA</h4>
-                            <a href="#" class="btn btn_sm_primary p bg-blue c-white rounded-8">
-                                <i class="tio user mr-1 align-middle font-s-16"></i>
-                                <span>Masuk</span>
-                            </a>
-                            <a href="#" class="btn btn_sm_primary p bg-dark c-white rounded-8">
-                                <i class="tio sign_out mr-1 align-middle font-s-16"></i>
-                                <span>Daftar</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 text-center padding-t-4">
-                    <div class="copyright">
-                        <span>© 2021
-                            <a href="#" target="_blank">SWIT - Surosowan Information Technology.</a>
-                            All Right Reseved</span>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- End. -->
+                            <div class="swiper-button-prev swiper-button-disabled" tabindex="0" role="button"
+                                aria-label="Previous slide" aria-disabled="true">
+                                <i class="tio chevron_left"></i>
+                            </div>
 
-        <!-- Back to top with progress indicator-->
-        <div class="prgoress_indicator">
-            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-            </svg>
+                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                        </div>
+
+                    </div>
         </div>
+    </div>
 
-        <!-- Video Modal -->
-        <div class="modal mdll_video fade" id="mdllVideo" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <!-- Close -->
-            <button type="button" class="close bbt_close ripple_circle" data-dismiss="modal" aria-label="Close">
-                <i class="tio clear"></i>
-            </button>
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
-                                allow="autoplay"></iframe>
+    </div>
+    </section>
+
+    </main>
+    <!-- end main -->
+    </div>
+    <!-- [id] content -->
+
+    <!-- footr -->
+    <footer class="defalut-footer foot_demo3 light margin-t-12 padding-py-8">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="item_about">
+                        <a class="logo" href="#">
+                            <img src="{{ asset('front/img/onta.png') }}" alt="logo" />
+                        </a>
+                        <p>
+                            Onta (Online Travel Agent)
+                        </p>
+                        <div class="address">
+                            <span>mail@app.com</span>
+                            <span>Telpon: <a href="tel:0254200252">(0254) 200-252</a></span>
+                            <span>Fax: <a href="#">(0254) 201-952</a></span>
                         </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-2">
+                    <div class="item_links">
+                        <h4>Sosial Media</h4>
+                        <a class="nav-link" href="">Website</a>
+                        <a class="nav-link" href="">Facebook</a>
+                        <a class="nav-link" href="">Twitter</a>
+                        <a class="nav-link" href="">Instagram</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-2">
+                    <div class="item_links">
+                        <h4>Menu</h4>
+                        <a class="nav-link" href="">Camp</a>
+                        <a class="nav-link" href="">Hotel</a>
+                        {{-- <a class="nav-link" href="">ART</a> --}}
+                        <a class="nav-link" href="">Hubungi Kami</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mt-4 mt-lg-0">
+                    <div class="item_subscribe">
+                        <h4>ONTA</h4>
+                        <a href="#" class="btn btn_sm_primary p bg-blue c-white rounded-8">
+                            <i class="tio user mr-1 align-middle font-s-16"></i>
+                            <span>Masuk</span>
+                        </a>
+                        <a href="#" class="btn btn_sm_primary p bg-dark c-white rounded-8">
+                            <i class="tio sign_out mr-1 align-middle font-s-16"></i>
+                            <span>Daftar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center padding-t-4">
+                <div class="copyright">
+                    <span>© 2021
+                        <a href="#" target="_blank">SWIT - Surosowan Information Technology.</a>
+                        All Right Reseved</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End. -->
+
+    <!-- Back to top with progress indicator-->
+    <div class="prgoress_indicator">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="modal mdll_video fade" id="mdllVideo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <!-- Close -->
+        <button type="button" class="close bbt_close ripple_circle" data-dismiss="modal" aria-label="Close">
+            <i class="tio clear"></i>
+        </button>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                            allow="autoplay"></iframe>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Start Section Loader -->
-        <section class="loading_overlay">
-            <div class="loader_logo">
-                <img class="logo" src="{{ asset('front/img/onta.png') }}" />
-            </div>
-        </section>
-        <!-- End. Loader -->
+    <!-- Start Section Loader -->
+    <section class="loading_overlay">
+        <div class="loader_logo">
+            <img class="logo" src="{{ asset('front/img/onta.png') }}" />
+        </div>
+    </section>
+    <!-- End. Loader -->
     </div>
     <!-- End. wrapper -->
     <!-- Modal -->

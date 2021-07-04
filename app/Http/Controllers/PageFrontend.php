@@ -17,7 +17,11 @@ class PageFrontend extends Controller
         ->orderBy('namaToko','ASC')
         ->paginate(8);
 
-        return view('front-layouts/home', compact('penyediaJasa'));
+        $blog = Blog::select('blog.*')
+        ->orderBy('created_at', 'DESC')
+        ->get();
+
+        return view('front-layouts/home', compact('penyediaJasa', 'blog'));
     }
 
     public function pageHotel(Request $request)
@@ -73,7 +77,7 @@ class PageFrontend extends Controller
         ->where('penyedia_jasa.idJasa', $detail_id)
         ->first();
 
-        $penyediaJasaBarang = Barang::select('barang.*', 'penyedia_jasa.namaToko', 'penyedia_jasa.idJasa' ,'users.nama')
+        $penyediaJasaBarang = Barang::select('barang.*', 'penyedia_jasa.namaToko', 'penyedia_jasa.idJasa' ,'users.nama', 'users.telp')
         ->join('penyedia_jasa', 'penyedia_jasa.idJasa', '=', 'barang.idJasa')
         ->join('users', 'users.idPengguna', '=', 'penyedia_jasa.idPengguna')
         ->orderBy('namaToko','ASC')

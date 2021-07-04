@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Blog;
 use App\Models\PenyediaJasa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,11 @@ class PagePenggunaController extends Controller
         ->orderBy('namaToko','ASC')
         ->paginate(8);
 
-        return view('pengguna/component/beranda', compact('penyediaJasa'));
+        $blog = Blog::select('blog.*')
+        ->orderBy('created_at', 'DESC')
+        ->get();
+
+        return view('pengguna/component/beranda', compact('penyediaJasa', 'blog'));
     }
 
     public function pageBukaJasa()
