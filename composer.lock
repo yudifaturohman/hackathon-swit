@@ -4959,6 +4959,57 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "yudifaturohman/laravel-tes",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yudifaturohman/laravel-tes.git",
+                "reference": "b6a4bde0d0478ed16a5f66171db396f9a2042a51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yudifaturohman/laravel-tes/zipball/b6a4bde0d0478ed16a5f66171db396f9a2042a51",
+                "reference": "b6a4bde0d0478ed16a5f66171db396f9a2042a51",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^5.1|^6.0|^7.0|^8.0",
+                "illuminate/database": "^5.1|^6.0|^7.0|^8.0",
+                "illuminate/support": "^5.1|^6.0|^7.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yudi1212\\AutoNumber\\AutoNumberServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yudi1212\\AutoNumber\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yudi Faturohman",
+                    "email": "yudi.faturohman1998@gmail.com"
+                }
+            ],
+            "description": "Laravel package to create autonumber for Eloquent model",
+            "homepage": "https://github.com/yudifaturohman/laravel-tes.git",
+            "keywords": [
+                "autonumber",
+                "eloquent",
+                "laravel"
+            ],
+            "time": "2021-01-22T07:03:13+00:00"
         }
     ],
     "packages-dev": [
@@ -7472,5 +7523,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

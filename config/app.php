@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Yudi1212\AutoNumber\AutoNumberServiceProvider::class,
         /*
          * Application Service Providers...
          */

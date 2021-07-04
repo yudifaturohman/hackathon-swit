@@ -17,11 +17,13 @@ Onta (Online Travel Agent)
   - namaBarang
   - deskripsi
   - harga
+  - gambar
   - stok
 - Hotel (Menggunakan REST API Pihak Ketiga : https://rapidapi.com/apidojo/api/travel-advisor/)
 - Blog
   - idBlog
   - idAdministrator
+  - judul
   - slug
   - konten
   - gambar

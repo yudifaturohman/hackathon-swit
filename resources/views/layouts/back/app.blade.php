@@ -57,49 +57,40 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{route('admin.blog')}}" class='sidebar-link'>
                                 <i class="bi bi-broadcast"></i>
-                                <span>Informasi Terbaru</span>
+                                <span>Blog</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-brush"></i>
-                                <span>Karya</span>
+                                <span>Fitur</span>
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="extra-component-avatar.html">Cerpen</a>
+                                    <a href="{{route('admin.penyedia-jasa')}}">Penyedia Jasa</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="extra-component-sweetalert.html">Puisi</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="#">Cerbung</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="#">Cerbung Episode</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="#">Jurnal</a>
+                                    <a href="{{route('admin.barang')}}">Barang</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{route('admin.pengguna')}}" class='sidebar-link'>
                                 <i class="bi bi-person"></i>
-                                <span>Akun</span>
+                                <span>Pengguna</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.keluar') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class='sidebar-link'>
                                 <i class="bi bi-signpost"></i>
                                 <span>Keluar</span>
                             </a>
-                            <form id="logout-form" action="#" method="POST">
+                            <form id="logout-form" action="{{ route('admin.keluar') }}" method="POST">
                                 @csrf
                             </form>
                         </li>
