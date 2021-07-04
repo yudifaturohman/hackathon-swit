@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Administrator\AdministratorController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('front-layouts/home');
 });
+
+Route::get('/masuk', [LoginController::class, 'getLogin'])->name('login');
+
+Route::get('/dashboard', [AdministratorController::class, 'index'])->name('dashboard');
+

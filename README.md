@@ -6,8 +6,9 @@ Onta (Online Travel Agent)
   - idPengguna
   - namaToko
   - gambar
-  - telp
-  - email
+  <!-- DATA NYA AMBIL DARI TABEL PENGGUNA -->
+  <!-- - telp -->
+  <!-- - email -->
   - deskripsi
 - Barang
   - idBarang
@@ -30,6 +31,8 @@ Onta (Online Travel Agent)
   - telp
   - email
   - password
+  - status
+  - activation_token
 - Akun Administrator
   - idAdministrator
   - nama
