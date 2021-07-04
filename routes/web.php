@@ -16,7 +16,7 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front-layouts/home');
 });
 
 Route::get('/masuk', [LoginController::class, 'getLogin'])->name('login');
