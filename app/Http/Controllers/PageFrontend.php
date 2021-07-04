@@ -12,7 +12,12 @@ class PageFrontend extends Controller
 {
     public function index()
     {
-        return view('front-layouts/home');
+        $penyediaJasa = PenyediaJasa::select('penyedia_jasa.*', 'users.nama')
+        ->join('users', 'users.idPengguna', '=', 'penyedia_jasa.idPengguna')
+        ->orderBy('namaToko','ASC')
+        ->paginate(8);
+
+        return view('front-layouts/home', compact('penyediaJasa'));
     }
 
     public function pageHotel(Request $request)
@@ -68,7 +73,7 @@ class PageFrontend extends Controller
         ->where('penyedia_jasa.idJasa', $detail_id)
         ->first();
 
-        $penyediaJasaBarang = Barang::select('barang.*', 'penyedia_jasa.namaToko', 'penyedia_jasa.idJasa' ,'pengguna.nama')
+        $penyediaJasaBarang = Barang::select('barang.*', 'penyedia_jasa.namaToko', 'penyedia_jasa.idJasa' ,'users.nama')
         ->join('penyedia_jasa', 'penyedia_jasa.idJasa', '=', 'barang.idJasa')
         ->join('users', 'users.idPengguna', '=', 'penyedia_jasa.idPengguna')
         ->orderBy('namaToko','ASC')

@@ -13,7 +13,7 @@ class LoginPenggunaController extends Controller
     public function showFormLogin()
     {
         if (Auth::check()) {
-            return redirect()->route('beranda');
+            return redirect()->route('pengguna.beranda');
         }
         return view('auth.login-pengguna');
     }
@@ -31,7 +31,7 @@ class LoginPenggunaController extends Controller
 
         if(Auth::attempt($credentials)){ 
             $user = Auth::user();
-            return redirect()->route('beranda');
+            return redirect()->route('pengguna.beranda');
         }elseif(!Auth::attempt($credentials)){
             return redirect()->route('login')->with('error', 'Mohon maaf e-mail belum melakukan verifikasi atau email belum terdaftar');
         }

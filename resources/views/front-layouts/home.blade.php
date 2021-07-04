@@ -98,10 +98,7 @@
                                             <div class="banner_title">
                                                 <h1>Home Camp</h1>
                                                 <p>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem
-                                                    Ipsum has been the industry's standard dummy text ever since the
-                                                    1500s,
+                                                    Liburan Bersama Keluarga dengan suasana alam terbuka cukup dirumah aja.
                                                 </p>
                                             </div>
                                         </div>
@@ -123,10 +120,7 @@
                                             <div class="banner_title">
                                                 <h1>Hotel</h1>
                                                 <p>
-                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem
-                                                    Ipsum has been the industry's standard dummy text ever since the
-                                                    1500s,
+                                                    Cek tempat hotel idaman anda
                                                 </p>
                                             </div>
                                         </div>
@@ -150,110 +144,21 @@
                                 <div class="gq_item bg-onta">
                                     <span class="d-block c-white font-s-24 text-center">Penyedia Jasa Camp Kami</span>
                                     <div class="row" style="padding-top:40px; text-align:center; color:white">
+                                        @foreach ($penyediaJasa as $item)
                                         <div class="col-md-3">
                                             <div class="av_person">
                                                 <div class="avatar🐱">
                                                     <img class="rounded-circle"
-                                                        src="{{ asset('front/img/persons/02.png') }}" width="150">
+                                                        src="{{ url(Storage::url('penyedia_jasa/'.$item->gambar)) }}" width="150">
                                                 </div>
                                                 <div class="info_name" style="text-align:center; padding-top:10px">
                                                     <p>
-                                                        Nama Usaha 1
+                                                        {{ $item->namaToko }}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="av_person">
-                                                <div class="avatar🐱">
-                                                    <img class="rounded-circle"
-                                                        src="{{ asset('front/img/persons/02.png') }}" width="150">
-                                                </div>
-                                                <div class="info_name" style="text-align:center; padding-top:10px">
-                                                    <p>
-                                                        Nama Usaha 2
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="av_person">
-                                                <div class="avatar🐱">
-                                                    <img class="rounded-circle"
-                                                        src="{{ asset('front/img/persons/02.png') }}" width="150">
-                                                </div>
-                                                <div class="info_name" style="text-align:center; padding-top:10px">
-                                                    <p>
-                                                        Nama Usaha 3
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="av_person">
-                                                <div class="avatar🐱">
-                                                    <img class="rounded-circle"
-                                                        src="{{ asset('front/img/persons/02.png') }}" width="150">
-                                                </div>
-                                                <div class="info_name" style="text-align:center; padding-top:10px">
-                                                    <p>
-                                                        Nama Usaha 4
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="av_person">
-                                                <div class="avatar🐱">
-                                                    <img class="rounded-circle"
-                                                        src="{{ asset('front/img/persons/02.png') }}" width="150">
-                                                </div>
-                                                <div class="info_name" style="text-align:center; padding-top:10px">
-                                                    <p>
-                                                        Nama Usaha 5
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="av_person">
-                                                <div class="avatar🐱">
-                                                    <img class="rounded-circle"
-                                                        src="{{ asset('front/img/persons/02.png') }}" width="150">
-                                                </div>
-                                                <div class="info_name" style="text-align:center; padding-top:10px">
-                                                    <p>
-                                                        Nama Usaha 6
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="av_person">
-                                                <div class="avatar🐱">
-                                                    <img class="rounded-circle"
-                                                        src="{{ asset('front/img/persons/02.png') }}" width="150">
-                                                </div>
-                                                <div class="info_name" style="text-align:center; padding-top:10px">
-                                                    <p>
-                                                        Nama Usaha 7
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="av_person">
-                                                <div class="avatar🐱">
-                                                    <img class="rounded-circle"
-                                                        src="{{ asset('front/img/persons/02.png') }}" width="150">
-                                                </div>
-                                                <div class="info_name" style="text-align:center; padding-top:10px">
-                                                    <p>
-                                                        Nama Usaha 8
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

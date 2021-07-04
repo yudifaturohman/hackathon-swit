@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LoginPenggunaController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\PageFrontend;
+use App\Http\Controllers\PagePenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::get('/home-camp/{detail_id}', [PageFrontend::class, 'pageDetailProduk'])-
 Route::get('/hotel', [PageFrontend::class, 'pageHotel'])->name('hotel');
 Route::get('/detail-hotel/{location_id}', [PageFrontend::class, 'pageDetailHotel'])->name('detail.hotel');
 Route::get('/masuk', [LoginPenggunaController::class, 'showFormLogin'])->name('login');
+Route::get('/keluar', [LoginPenggunaController::class, 'logout'])->name('logout');
 Route::get('/pendaftaran', [DaftarController::class, 'pendaftaran'])->name('pendaftaran');
 Route::get('/auth/signup/konfirmasi/{token}', [DaftarController::class, 'aktifasiPendaftaran']);
 Route::post('/masuk', [LoginPenggunaController::class, 'login'])->name('login.user');
@@ -58,4 +60,16 @@ Route::group(['prefix' => '/auth/master', 'as' => 'admin.'], function(){
 
     });
 
+});
+
+/**
+ * Route untuk pengguna setelah login
+ */
+Route::group(['middleware' => ['auth'], 'as' => 'pengguna.'], function() {
+
+    Route::get('beranda', [PagePenggunaController::class, 'index'])->name('beranda');
+    Route::get('buka-jasa-camp', [PagePenggunaController::class, 'pageBukaJasa'])->name('buka-jasa');
+
+    Route::post('/penyedia-jasa/simpan', [PagePenggunaController::class, 'simpanBukaJasa'])->name('penyedia-jasa.simpan');
+    Route::post('/penyedia-jasa/barang/simpan/', [PagePenggunaController::class, 'simpanBarangJasa'])->name('barang-jasa.simpan');
 });
