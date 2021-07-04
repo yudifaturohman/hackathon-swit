@@ -64,13 +64,13 @@
 
                             </ul>
                             <div class="nav_account btn_demo2">
-                                <a href="#"
+                                <a href="{{ route('login') }}"
                                     class="btn btn_sm_primary border-0 sweep_letter sweep_top c-black border-1 rounded-8">
                                     <div class="inside_item">
                                         <span data-hover="Masuk">Masuk</span>
                                     </div>
                                 </a>
-                                <a href="#" class="btn btn_sm_primary bg-blue c-white effect-letter rounded-8">
+                                <a href="{{ route('pendaftaran') }}" class="btn btn_sm_primary bg-blue c-white effect-letter rounded-8">
                                     Daftar
                                 </a>
                             </div>

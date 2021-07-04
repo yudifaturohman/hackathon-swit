@@ -47,6 +47,12 @@
                   <input type="text" class="form-control" placeholder="Nama Lengkap" value="{{old('nama')}}" name="nama" autocomplete="nama">
                 </div>
               </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label>Telpon</label>
+                  <input type="text" class="form-control" placeholder="Nomor Telpon" value="{{old('telp')}}" name="telp" autocomplete="telp">
+                </div>
+              </div>
               <div class="col-md-12">
                 <div class="form-group --password" id="show_hide_password">
                   <label>Password</label>

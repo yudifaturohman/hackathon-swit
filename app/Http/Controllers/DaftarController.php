@@ -27,6 +27,7 @@ class DaftarController extends Controller
         $daftar = User::create([
             'email' => $request->get('email'),
             'nama'  => $request->get('nama'),
+            'telp'  => $request->get('telp'),
             'password' => Hash::make($request->get('password')),
             'status' => '0',
             'activation_token' => Str::random(60),
