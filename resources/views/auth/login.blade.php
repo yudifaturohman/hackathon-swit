@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{{ asset('back/assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('back/assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('back/assets/css/pages/auth.css') }}">
-    <link rel="shortcut icon" href="{{ asset('back/assets/images/favicon.ico') }}" type="image/x-icon">
 </head>
 
 <body>
@@ -21,7 +20,6 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <h1 class="auth-title">Log in.</h1>
-                    <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
 
                     @foreach ($errors->all() as $error)
                     <div class="alert alert-light-danger alert-dismissible show fade">
@@ -47,11 +45,6 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
                     </form>
-                    <div class="text-center mt-5 text-lg fs-4">
-                        <p class="text-gray-600">Don't have an account? <a href="#" class="font-bold">Sign
-                                up</a>.</p>
-                        <p><a class="font-bold" href="auth-forgot-password.html">Forgot password?</a>.</p>
-                    </div>
                     <footer>
                         <div class="footer text-center clearfix mb-0 text-muted">
                             <p>2021 &copy; ONTA - Online Travel Agent</p>

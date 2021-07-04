@@ -24,17 +24,16 @@
 
 </head>
 
-<body id="myNavbar">
+<body>
     <div id="wrapper">
         <div id="content">
             <!-- Start header -->
-
-            <header class="header-nav-center no_blur white-scroll-dark active-red">
+            <header class="header-nav-center no_blur white-scroll-dark active-red" id="myNavbar">
                 <div class="container">
                     <!-- navbar -->
                     <nav class="navbar navbar-expand-lg navbar-light px-sm-0">
-                        <a class="navbar-brand" href="">
-                            <img class="logo" src="{{asset('front/img/onta.png') }}" alt="logo" />
+                        <a class="navbar-brand" href="{{ route('index') }}">
+                            <img class="logo" src="{{ asset('front/img/onta.png') }}" alt="logo" />
                         </a>
 
                         <button class="navbar-toggler menu ripplemenu" type="button" data-toggle="collapse"
@@ -56,8 +55,8 @@
                                     <a class="nav-link" href="#" data-toggle="modal" data-target="#search">Hotel</a>
                                 </li>
                                 {{-- <li class="nav-item">
-                        <a class="nav-link" href="">ART</a>
-                    </li> --}}
+                                    <a class="nav-link" href="">ART</a>
+                                </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link" href="">Hubungi Kami</a>
                                 </li>
@@ -86,223 +85,79 @@
             <main data-spy="scroll" data-target="#navbar-example2" data-offset="0">
 
                 <!-- Start banner_about -->
-                @foreach ($detailListTravelAdvisor['data'] as $item)
-                <section class="pt_banner_inner banner_px_image single_blog featured_image">
+                <section class="pt_banner_inner banner_px_image blog-banner_with_image">
                     <div class="parallax_cover">
-                        <img class="cover-parallax" src="{{ $item['photo']['images']['original']['url'] }}" alt="image"
-                            lazy="loading">
+                        <img class="cover-parallax" src="{{ asset('front/img/inner/06540.png') }}" alt="image">
                     </div>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-8 col-lg-8">
-                                <div class="banner_title_inner">
-
-                                    <div class="about_post">
-                                        <span class="c_ategory">
-                                            <a href="#">{{ $item['location_string'] }}</a>
-                                        </span>
-                                        <span class="dot"></span>
-                                        <span class="c_ategory">
-                                            <a href="#"><i class="tio star"></i> {{ $item['num_reviews'] }}</a>
-                                        </span>
-                                        <span class="dot"></span>
-                                        <span class="c_ategory">
-                                            <a href="#">Ranking {{ $item['rating'] }}</a>
-                                        </span>
-                                    </div>
-
-                                    <h1 class="margin-my-3 font-s-60" data-aos="fade-up" data-aos-delay="0">
-                                        {{ $item['name'] }}
+                            <div class="col-md-8 col-lg-6">
+                                <div class="banner_title_inner margin-b-3">
+                                    <h1 data-aos="fade-up" data-aos-delay="0">
+                                        Penyedia Jasa Camp 
                                     </h1>
-
-                                    <h3 data-aos="fade-up" data-aos-delay="0" style="color: white">
-                                        {{ $item['price'] }}
-                                    </h3>
-
+                                    <p data-aos="fade-up" data-aos-delay="100">
+                                        Temukan Jasa Camp Untuk Halaman Rumah Anda
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </section>
                 <!-- End banner_about -->
 
-                <!-- Start content-Sblog -->
-                <section class="content-Sblog" data-sticky-container>
+                <!-- Start box_news_gray -->
+                <section class="blog_slider box_news_gray margin-t-8">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-3">
-                                <div class="fixSide_scroll" data-sticky-for="1023" data-margin-top="100">
-                                    <div class="share_socail">
-                                        <div class="title">Share</div>
-
-                                        <button class="btn icon" data-toggle="tooltip" data-placement="right"
-                                            title="Facebook" data-sharer="facebook" data-hashtag="{{ $item['name'] }}"
-                                            data-url="{{ $item['web_url'] }}">
-                                            <i class="tio facebook"></i>
-                                        </button>
-
-                                        <button class="btn icon" data-toggle="tooltip" data-placement="right"
-                                            title="Twitter" data-sharer="twitter" data-title="{{ $item['name'] }}"
-                                            data-hashtag="{{ $item['name'] }}" data-url="{{ $item['web_url'] }}">
-                                            <i class="tio twitter"></i>
-                                        </button>
-
-                                        <button class="btn icon" data-toggle="tooltip" data-placement="right"
-                                            title="Whatsapp" data-sharer="whatsapp" data-title="{{ $item['name'] }}"
-                                            data-url="{{ $item['web_url'] }}">
-                                            <i class="tio whatsapp_outlined"></i>
-                                        </button>
-
-                                        <button class="btn icon" data-toggle="tooltip" data-placement="right"
-                                            title="Telegram" data-sharer="telegram" data-title="{{ $item['name'] }}"
-                                            data-url="{{ $item['web_url'] }}" data-to="+44555-03564">
-                                            <i class="tio telegram"></i>
-                                        </button>
-
-                                        <button class="btn icon" data-toggle="tooltip" data-placement="right"
-                                            title="Pinterest" data-sharer="pinterest" data-url="{{ $item['web_url'] }}">
-                                            <i class="tio pinterest_circle"></i>
-                                        </button>
-
-                                        <button class="btn icon" data-toggle="tooltip" data-placement="right"
-                                            title="skype" data-sharer="skype" data-url="{{ $item['web_url'] }}"
-                                            data-title="{{ $item['name'] }}">
-                                            <i class="tio skype"></i>
-                                        </button>
-
+                            <div class="col-12">
+                                <div class="title_sections_inner">
+                                    <h2>Penyedia Jasa</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            @foreach ($penyediaJasa as $item)
+                            <div class="col-md-6 col-lg-4">
+                                <div class="grid_blog_avatar">
+                                    <div class="cover_blog">
+                                        <img src="{{ url(Storage::url('penyedia_jasa/'.$item->gambar)) }}" lazy="loading">
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="body_content">
-                                    <h3>Deskripsi</h3>
-                                    <p class="margin-b-3">{{ $item['description'] }}</p>
-                                    <h3>Tentang</h3>
-                                    <p>
-                                        {{ $item['phone'] }}
-                                    </p>
-
-                                    <p>
-                                        {{ $item['website'] }}
-                                    </p>
-                                    <p>
-                                        {{ $item['email'] }}
-                                    </p>
-                                    <p>
-                                        {{ $item['address'] }}
-                                    </p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="dividar margin-t-12"></section>
-                <!-- End. content-Sblog -->
-                <section class="stories__customers py-0 my-0 bg-white margin-b-6">
-                    <div class="container">
-                        <div class="row justify-content-center text-center">
-                            <div class="col-lg-5">
-                                <div class="title_sections_inner margin-b-5">
-                                    <h2>Review</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-9 offset-lg-3">
-                                <div class="body__swipe">
-                                    <!-- Swiper -->
-                                    <div class="swiper-container swiper__center swiper-container-initialized swiper-container-horizontal"
-                                        style="cursor: grab;">
-                                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
-                                            @foreach ($item['room_tips'] as $itemReview)
-                                            <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
-                                                <div class="item__review bg-snow">
-                                                    <div class="head_content">
-                                                        <div class="media">
-                                                            <img class="img_av"
-                                                                src="{{ $itemReview['user']['avatar']['small']['url'] }}"
-                                                                alt="">
-                                                            <div class="media-body">
-                                                                <div class="txt">
-                                                                    <h3>{{ $itemReview['user']['username'] }}</h3>
-                                                                    <p>
-                                                                        @if ($itemReview['rating'] == 1)
-                                                                        <div class="starts_item">
-                                                                            <i class="tio star"></i>
-                                                                        </div>
-                                                                        @elseif($itemReview['rating'] == 2)
-                                                                        <div class="starts_item">
-                                                                            <i class="tio star"></i>
-                                                                            <i class="tio star"></i>
-                                                                        </div>
-                                                                        @elseif($itemReview['rating'] == 3)
-                                                                        <div class="starts_item">
-                                                                            <i class="tio star"></i>
-                                                                            <i class="tio star"></i>
-                                                                            <i class="tio star"></i>
-                                                                        </div>
-                                                                        @elseif($itemReview['rating'] == 4)
-                                                                        <div class="starts_item">
-                                                                            <i class="tio star"></i>
-                                                                            <i class="tio star"></i>
-                                                                            <i class="tio star"></i>
-                                                                            <i class="tio star"></i>
-                                                                        </div>
-                                                                        @elseif($itemReview['rating'] == 5)
-                                                                        <div class="starts_item">
-                                                                            <i class="tio star"></i>
-                                                                            <i class="tio star"></i>
-                                                                            <i class="tio star"></i>
-                                                                            <i class="tio star"></i>
-                                                                            <i class="tio star"></i>
-                                                                        </div>
-                                                                        @endif
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="content_txt">
-                                                        <p>
-                                                            "{{ $itemReview['text'] }}"
-                                                        </p>
+                                    <div class="body_blog">
+                                        <a href="#">
+                                            <div class="person media">
+                                                <img src="{{ asset('front/img/persons/03.png') }}" alt="">
+                                                <div class="media-body">
+                                                    <div class="txt">
+                                                        <h3>{{ $item->nama }}</h3>
                                                     </div>
                                                 </div>
                                             </div>
-                                            @endforeach
-
-                                        </div>
-                                        <span class="swiper-notification" aria-live="assertive"
-                                            aria-atomic="true"></span>
+                                        </a>
+                                        <a href="#" class="link_blog" target="_blank">
+                                            <h4 class="title_blog">
+                                                {{ $item->namaToko }}
+                                            </h4>
+                                            <p class="short_desc">
+                                                {{ $item->deskripsi }}
+                                            </p>
+                                        </a>
                                     </div>
-
-                                    <!-- Add Arrows -->
-                                    <div class="swiper-button-next bg-dark" tabindex="0" role="button"
-                                        aria-label="Next slide" aria-disabled="false">
-                                        <i class="tio chevron_right c-white"></i>
-                                    </div>
-
-                                    <div class="swiper-button-prev bg-snow swiper-button-disabled" tabindex="0"
-                                        role="button" aria-label="Previous slide" aria-disabled="true">
-                                        <i class="tio chevron_left c-dark"></i>
-                                    </div>
-
                                 </div>
+                                <!-- End grid_blog_avatar -->
                             </div>
+                            @endforeach
+                            {{ $penyediaJasa->links() }}
                         </div>
                     </div>
                 </section>
-                @endforeach
+                <!-- End. box_news_gray -->
 
-                <!-- Start dividar -->
-                <section class="dividar margin-t-12"></section>
-                <!-- End. dividar -->
-
+                <!-- dividar_line -->
+                <div class="container margin-my-7">
+                    <div class="dividar_line"></div>
+                </div>
+                <!-- End. dividar_line -->
 
             </main>
         </div>
@@ -395,6 +250,7 @@
                 <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
             </svg>
         </div>
+
 
     </div>
     <!-- End. wrapper -->

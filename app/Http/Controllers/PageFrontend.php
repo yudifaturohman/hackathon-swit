@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PenyediaJasa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
@@ -30,11 +31,6 @@ class PageFrontend extends Controller
         ]);
 
         $listTravelAdvisor = $apiListTravelAdvisor->json();
-        // $filtered = Arr::except($listTravelAdvisor, ['ad_position', 'ad_size', 'doubleclick_zone', 'ancestors', 'detail', 'page_type', 'mob_ptype']);
-        // $collect = collect($listTravelAdvisor);
-        // $filtered = $collect->except(['ad_position', 'ad_size', 'doubleclick_zone', 'ancestors', 'detail', 'page_type', 'mob_ptype'])->toArray();
-        // $listTravelAdvisor = json_decode($apiListTravelAdvisor->getBody());
-        // dd($listTravelAdvisor);
         return view('front-layouts/hotel', compact('listTravelAdvisor'));
     }
 
@@ -51,5 +47,15 @@ class PageFrontend extends Controller
         $detailListTravelAdvisor = $detailApiListTravelAdvisor->json();
 
         return view('front-layouts/detail-hotel', compact('detailListTravelAdvisor'));
+    }
+
+    public function pagePenyediaJasa()
+    {
+        $penyediaJasa = PenyediaJasa::select('penyedia_jasa.*', 'pengguna.nama')
+        ->join('pengguna', 'pengguna.idPengguna', '=', 'penyedia_jasa.idPengguna')
+        ->orderBy('namaToko','ASC')
+        ->paginate(10);
+
+        return view('front-layouts/penyedia-jasa', compact('penyediaJasa'));
     }
 }
