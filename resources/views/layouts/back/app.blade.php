@@ -66,11 +66,11 @@
                         <li class="sidebar-item has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-brush"></i>
-                                <span>Karya</span>
+                                <span>Fitur</span>
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="extra-component-avatar.html">Cerpen</a>
+                                    <a href="{{route('admin.penyedia-jasa')}}">Penyedia Jasa</a>
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="extra-component-sweetalert.html">Puisi</a>

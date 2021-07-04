@@ -25,5 +25,9 @@ Route::group(['prefix' => '/auth/master', 'as' => 'admin.'], function(){
 
     Route::get('/dashboard', [AdministratorController::class, 'index'])->name('dashboard');
     Route::get('/pengguna', [AdministratorController::class, 'halamanPengguna'])->name('pengguna');
-
+    
+    Route::group(['prefix' => 'penyedia-jasa'], function() {
+        Route::get('/', [AdministratorController::class, 'halamanPenyediaJasa'])->name('penyedia-jasa');
+        Route::post('/save', [AdministratorController::class, 'halamanPenyediaJasaSave'])->name('penyedia-jasa.save');
+    });
 });

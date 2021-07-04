@@ -8,10 +8,6 @@ use App\Models\Pengguna as ModelPengguna;
 
 class Pengguna extends Component
 {
-    // public function render()
-    // {
-    //     return view('livewire.administrator.pengguna.pengguna');
-    // }
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
