@@ -18,7 +18,7 @@ class CreatePenyediaJasaTable extends Migration
             $table->string('idJasa', 10);
             $table->index('idJasa');
             $table->string('idPengguna', 10);
-            $table->foreign('idPengguna')->references('idPengguna')->on('pengguna')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('idPengguna')->references('idPengguna')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('namaToko', 125);
             $table->text('gambar');
             $table->string('deskripsi');

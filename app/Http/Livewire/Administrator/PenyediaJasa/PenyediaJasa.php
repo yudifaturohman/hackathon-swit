@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Administrator\PenyediaJasa;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\PenyediaJasa as ModelPenyediaJasa;
-use App\Models\Pengguna as ModelPengguna;
+use App\Models\User as ModelUsers;
 use File;
 
 class PenyediaJasa extends Component
@@ -20,12 +20,12 @@ class PenyediaJasa extends Component
 
     public function render()
     {
-        $pengguna = ModelPengguna::orderBy('nama','ASC')
+        $pengguna = ModelUsers::orderBy('nama','ASC')
         ->get();
 
         return view('livewire.administrator.penyedia-jasa.penyedia-jasa', [
-            'penyediaJasa' => ModelPenyediaJasa::select('penyedia_jasa.*', 'pengguna.nama')
-            ->join('pengguna', 'pengguna.idPengguna', '=', 'penyedia_jasa.idPengguna')
+            'penyediaJasa' => ModelPenyediaJasa::select('penyedia_jasa.*', 'users.nama')
+            ->join('users', 'users.idPengguna', '=', 'penyedia_jasa.idPengguna')
             ->orderBy('namaToko','ASC')
             ->where('namaToko', 'like', '%'.$this->search.'%')
             ->paginate(10)

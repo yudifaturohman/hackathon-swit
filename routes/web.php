@@ -27,7 +27,7 @@ Route::group(['prefix' => '/auth/master', 'as' => 'admin.'], function(){
     Route::group(['middleware' => 'auth:masterauth'], function() {
 
         Route::get('/dashboard', [AdministratorController::class, 'index'])->name('dashboard');
-        Route::get('/pengguna', [AdministratorController::class, 'halamanPengguna'])->name('pengguna');
+        Route::get('/user', [AdministratorController::class, 'halamanUser'])->name('user');
         Route::get('/review', [AdministratorController::class, 'halamanReview'])->name('review');
         
         Route::group(['prefix' => 'penyedia-jasa'], function() {

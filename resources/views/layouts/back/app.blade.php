@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('back/assets/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('back/assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('back/assets/css/app.css') }}">
-    <link rel="shortcut icon" href="{{ asset('back/assets/images/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('back/assets/images/onta.ico') }}" type="image/x-icon">
 
     @livewireStyles
 
@@ -31,7 +31,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="{{url('/')}}"><img src="#" alt="Logo"></a>
+                            <a href="{{url('/')}}"><img src="{{ asset('back/assets/images/onta.png') }}" alt="Logo"></a>
                         </div>
                         <div class="toggler">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -72,7 +72,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="{{route('admin.pengguna')}}" class='sidebar-link'>
+                            <a href="{{route('admin.user')}}" class='sidebar-link'>
                                 <i class="bi bi-person"></i>
                                 <span>Pengguna</span>
                             </a>

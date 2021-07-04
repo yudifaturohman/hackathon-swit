@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\Administrator\Pengguna;
+namespace App\Http\Livewire\Administrator\User;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Pengguna as ModelPengguna;
+use App\Models\User as ModelUser;
 
-class Pengguna extends Component
+class User extends Component
 {
     use WithPagination;
 
@@ -17,8 +17,8 @@ class Pengguna extends Component
 
     public function render()
     {
-        return view('livewire.administrator.pengguna.pengguna', [
-            'pengguna' => ModelPengguna::orderBy('created_at','DESC')
+        return view('livewire.administrator.user.user', [
+            'user' => ModelUser::orderBy('created_at','DESC')
             ->where('nama', 'like', '%'.$this->search.'%')
             ->paginate(10)
         ]);
@@ -26,7 +26,7 @@ class Pengguna extends Component
 
     protected $rules = [
         'nama' => 'required|string|min:3|max:50',
-        'email' => 'required|string|email|unique:pengguna|min:5|max:50',
+        'email' => 'required|string|email|unique:users|min:5|max:50',
         'telp' => 'required|numeric|min:10',
         'password' => 'required|string|confirmed|min:8|max:30',
         'password_confirmation' => 'required',
@@ -45,7 +45,7 @@ class Pengguna extends Component
     {
         $this->validate();
 
-        ModelPengguna::create([
+        ModelUser::create([
             'nama' => $this->nama,
             'email' => $this->email,
             'telp' => $this->telp,
@@ -59,7 +59,7 @@ class Pengguna extends Component
 
     public function delete($id)
     {
-        ModelPengguna::find($id)->delete();
+        ModelUser::find($id)->delete();
         session()->flash('message', 'Data berhasil dihapus.');
     }
 }
