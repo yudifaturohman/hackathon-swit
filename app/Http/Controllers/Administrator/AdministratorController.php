@@ -11,4 +11,9 @@ class AdministratorController extends Controller
     {
         return view('administrator.dashboard');
     }
+
+    public function halamanPengguna()
+    {
+        return view('administrator.pengguna');
+    }
 }

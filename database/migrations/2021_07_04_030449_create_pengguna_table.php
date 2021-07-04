@@ -18,7 +18,7 @@ class CreatePenggunaTable extends Migration
             $table->string('idPengguna', 10);
             $table->index('idPengguna');
             $table->string('nama', 50);
-            $table->integer('telp');
+            $table->string('telp', 15);
             $table->string('email', 50)->unique();
             $table->string('password');
             $table->enum('status', ['0', '1']);

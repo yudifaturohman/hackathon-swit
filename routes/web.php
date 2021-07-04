@@ -21,5 +21,9 @@ Route::get('/', function () {
 
 Route::get('/masuk', [LoginController::class, 'getLogin'])->name('login');
 
-Route::get('/dashboard', [AdministratorController::class, 'index'])->name('dashboard');
+Route::group(['prefix' => '/auth/master', 'as' => 'admin.'], function(){
 
+    Route::get('/dashboard', [AdministratorController::class, 'index'])->name('dashboard');
+    Route::get('/pengguna', [AdministratorController::class, 'halamanPengguna'])->name('pengguna');
+
+});

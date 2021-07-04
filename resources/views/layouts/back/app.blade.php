@@ -88,9 +88,9 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{route('admin.pengguna')}}" class='sidebar-link'>
                                 <i class="bi bi-person"></i>
-                                <span>Akun</span>
+                                <span>Pengguna</span>
                             </a>
                         </li>
 
