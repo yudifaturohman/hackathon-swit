@@ -11,7 +11,7 @@ class Barang extends Model
     use HasFactory, AutoNumberTrait;
 
     protected $table = "barang";
-    protected $fillable = ['idBarang','idJasa','idPengguna','namaBarang','deskripsi','harga','stok'];
+    protected $fillable = ['idBarang','idJasa','idPengguna','namaBarang','deskripsi','harga','gambar','stok'];
 
     public function getAutoNumberOptions()
     {

@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\PenyediaJasa as ModelPenyediaJasa;
 use App\Models\Pengguna as ModelPengguna;
+use File;
 
 class PenyediaJasa extends Component
 {
@@ -46,22 +47,22 @@ class PenyediaJasa extends Component
 
     public function edit($id)
     {
-        $cerbung = ModelPenyediaJasa::findOrFail($id);
+        $edit = ModelPenyediaJasa::findOrFail($id);
         $this->selected_id = $id;
-        $this->idPengguna = $cerbung->idPengguna;
-        $this->namaToko = $cerbung->namaToko;
-        $this->deskripsi = $cerbung->deskripsi;
+        $this->idPengguna = $edit->idPengguna;
+        $this->namaToko = $edit->namaToko;
+        $this->deskripsi = $edit->deskripsi;
     }
 
     public function update()
     {
         $this->validate();
 
-        $cerbung = ModelPenyediaJasa::find($this->selected_id);
-        $cerbung->idPengguna = $this->idPengguna;
-        $cerbung->namaToko = $this->namaToko;
-        $cerbung->deskripsi = $this->deskripsi;
-        $cerbung->update();
+        $update = ModelPenyediaJasa::find($this->selected_id);
+        $update->idPengguna = $this->idPengguna;
+        $update->namaToko = $this->namaToko;
+        $update->deskripsi = $this->deskripsi;
+        $update->update();
 
         session()->flash('message', 'Data berhasil diubah.');
         $this->resetInput();

@@ -73,7 +73,7 @@
                                     <a href="{{route('admin.penyedia-jasa')}}">Penyedia Jasa</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="extra-component-sweetalert.html">Puisi</a>
+                                    <a href="{{route('admin.barang')}}">Barang</a>
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="#">Cerbung</a>

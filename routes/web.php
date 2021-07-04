@@ -30,4 +30,9 @@ Route::group(['prefix' => '/auth/master', 'as' => 'admin.'], function(){
         Route::get('/', [AdministratorController::class, 'halamanPenyediaJasa'])->name('penyedia-jasa');
         Route::post('/save', [AdministratorController::class, 'halamanPenyediaJasaSave'])->name('penyedia-jasa.save');
     });
+
+    Route::group(['prefix' => 'barang'], function() {
+        Route::get('/', [AdministratorController::class, 'halamanBarang'])->name('barang');
+        Route::post('/save', [AdministratorController::class, 'halamanBarangSave'])->name('barang.save');
+    });
 });

@@ -18,22 +18,26 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama Toko</th>
-                <th>Penyedia Jasa</th>
+                <th>Nama Barang</th>
                 <th>Deskripsi</th>
+                <th>Harga</th>
+                <th>Stok</th>
+                <th>Penyedia Jasa - Pengguna</th>
                 <th>Gambar</th>
                 <th>Opsi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($penyediaJasa as $item)
+            @foreach ($barang as $item)
             <tr>
                 <td>{{$loop->index + 1}}</td>
-                <td>{{$item->namaToko}}</td>
-                <td>{{$item->nama}}</td>
+                <td>{{$item->namaBarang}}</td>
                 <td>{{$item->deskripsi}}</td>
+                <td>Rp. {{$item->harga}}</td>
+                <td>{{$item->stok}}</td>
+                <td>{{$item->namaToko}} - {{$item->nama}}</td>
                 <td>
-                    <a href="{{url(Storage::url('penyedia_jasa/'.$item->gambar))}}" class="btn btn-sm btn-info" target="_blank">
+                    <a href="{{url(Storage::url('barang/'.$item->gambar))}}" class="btn btn-sm btn-info" target="_blank">
                         Lihat</a>
                 </td>
                 <td>
@@ -49,9 +53,9 @@
         </tbody>
     </table>
 
-    {{ $penyediaJasa->links() }}
+    {{ $barang->links() }}
 
     {{-- Modal --}}
-    @include('livewire.administrator.penyedia-jasa.create')
-    @include('livewire.administrator.penyedia-jasa.edit')
+    @include('livewire.administrator.barang.create')
+    @include('livewire.administrator.barang.edit')
 </div>
