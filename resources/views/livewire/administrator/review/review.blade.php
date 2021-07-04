@@ -18,33 +18,22 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama Barang</th>
-                <th>Deskripsi</th>
-                <th>Harga</th>
-                <th>Stok</th>
-                <th>Penyedia Jasa - Pengguna</th>
-                <th>Gambar</th>
+                <th>Penyedia Jasa</th>
+                <th>Pengguna</th>
+                <th>Review</th>
+                <th>Rating</th>
                 <th>Opsi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($barang as $item)
+            @foreach ($reviewRating as $item)
             <tr>
                 <td>{{$loop->index + 1}}</td>
-                <td>{{$item->namaBarang}}</td>
-                <td>{{$item->deskripsi}}</td>
-                <td>@currency($item->harga)</td>
-                <td>{{$item->stok}}</td>
-                <td>{{$item->namaToko}} - {{$item->nama}}</td>
+                <td>{{$item->namaToko}}</td>
+                <td>{{$item->nama}}</td>
+                <td>{{$item->review}}</td>
+                <td>{{$item->rating}}</td>
                 <td>
-                    <a href="{{url(Storage::url('barang/'.$item->gambar))}}" class="btn btn-sm btn-info" target="_blank">
-                        Lihat</a>
-                </td>
-                <td>
-                    <button type="button" wire:click="edit({{ $item->id }})" class="btn btn-sm btn-warning"
-                        data-bs-toggle="modal" data-bs-target="#edit">
-                        Ubah
-                    </button>
                     <button wire:click="delete({{ $item->id }})" type="button"
                         class="btn btn-sm btn-danger">Hapus</button>
                 </td>
@@ -53,9 +42,8 @@
         </tbody>
     </table>
 
-    {{ $barang->links() }}
+    {{ $reviewRating->links() }}
 
     {{-- Modal --}}
-    @include('livewire.administrator.barang.create')
-    @include('livewire.administrator.barang.edit')
+    @include('livewire.administrator.review.create')
 </div>

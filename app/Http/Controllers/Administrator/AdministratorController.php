@@ -131,4 +131,9 @@ class AdministratorController extends Controller
         session()->flash('message', 'Data berhasil ditambahkan.');
         return redirect()->back();
     }
+
+    public function halamanReview()
+    {
+        return view('administrator.review');
+    }
 }
