@@ -6,11 +6,19 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Yudi1212\AutoNumber\AutoNumberTrait;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, AutoNumberTrait;
+    use AutoNumberTrait;
+    use HasFactory;
+    use SoftDeletes;
+    use Notifiable;
+
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -22,9 +30,9 @@ class User extends Authenticatable
     protected $fillable = [
         'idPengguna',
         'nama',
-        'telp',
         'email',
         'password',
+        'telp',
         'status',
         'activation_token',
     ];
@@ -56,5 +64,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'activation_token',
     ];
 }

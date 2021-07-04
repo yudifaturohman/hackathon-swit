@@ -94,10 +94,10 @@
                             <div class="col-md-8 col-lg-6">
                                 <div class="banner_title_inner margin-b-3">
                                     <h1 data-aos="fade-up" data-aos-delay="0">
-                                        Hotel
+                                        {{ $penyediaJasa->namaToko }}
                                     </h1>
                                     <p data-aos="fade-up" data-aos-delay="100">
-                                        Temukan hotel idaman anda
+                                        Temukan Jasa Camp Untuk Halaman Rumah Anda
                                     </p>
                                 </div>
                             </div>
@@ -112,20 +112,16 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="title_sections_inner">
-                                    <h2>Hotel</h2>
+                                    <h2>Barang Yang di Sewakan</h2>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            @foreach ($listTravelAdvisor['data'] as $item)
+                            @foreach ($penyediaJasaBarang as $item)
                             <div class="col-md-6 col-lg-4">
                                 <div class="grid_blog_avatar">
                                     <div class="cover_blog">
-                                        @if (empty($item['result_object']['photo']['images']['original']['url']))
-                                            Tidak Ada Foto
-                                        @else
-                                        <img src="{{ $item['result_object']['photo']['images']['original']['url'] }}" alt="{{ $item['result_object']['name'] }}" lazy="loading">
-                                        @endif
+                                        <img src="{{ url(Storage::url('barang/'.$item->gambar)) }}" loading="lazy">
                                     </div>
                                     <div class="body_blog">
                                         <a href="#">
@@ -133,22 +129,18 @@
                                                 <img src="{{ asset('front/img/persons/03.png') }}" alt="">
                                                 <div class="media-body">
                                                     <div class="txt">
-                                                        <h3><i class="tio map"></i> {{ $item['result_object']['location_string'] }}</h3>
-                                                        <time><i class="tio star"></i> {{ $item['result_object']['num_reviews'] }}</time>
+                                                        <h3>Harga : Rp. {{ number_format($item->harga,2) }}</h3>
+                                                        <p>Stok : {{ $item->stok }}</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </a>
-                                        <a href="{{ route('detail.hotel', $item['result_object']['location_id']) }}" class="link_blog" target="_blank">
+                                        <a href="#" class="link_blog" target="_blank">
                                             <h4 class="title_blog">
-                                                {{ $item['result_object']['name'] }}
+                                                {{ $item->namaBarang }}
                                             </h4>
                                             <p class="short_desc">
-                                                @if (empty($item['result_object']['geo_description']))
-                                                Tidak Ada Deskripsi
-                                                @else
-                                                {{ $item['result_object']['geo_description'] }}
-                                                @endif
+                                                {{ $item->deskripsi }}
                                             </p>
                                         </a>
                                     </div>
@@ -156,7 +148,7 @@
                                 <!-- End grid_blog_avatar -->
                             </div>
                             @endforeach
-                            
+                            {{ $penyediaJasaBarang->links() }}
                         </div>
                     </div>
                 </section>

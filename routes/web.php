@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Administrator\AdministratorController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\PageFrontend;
 
 /*
@@ -17,8 +18,13 @@ use App\Http\Controllers\PageFrontend;
 */
 
 Route::get('/', [PageFrontend::class, 'index'])->name('index');
+Route::get('/home-camp', [PageFrontend::class, 'pagePenyediaJasa'])->name('home-camp');
+Route::get('/home-camp/{detail_id}', [PageFrontend::class, 'pageDetailProduk'])->name('home-camp.detail');
 Route::get('/hotel', [PageFrontend::class, 'pageHotel'])->name('hotel');
-
+Route::get('/detail-hotel/{location_id}', [PageFrontend::class, 'pageDetailHotel'])->name('detail.hotel');
+Route::get('/pendaftaran', [DaftarController::class, 'pendaftaran'])->name('pendaftaran');
+Route::get('/auth/signup/konfirmasi/{token}', [DaftarController::class, 'aktifasiPendaftaran']);
+Route::post('/pendaftaran/berhasil', [DaftarController::class, 'pendaftaranBaru'])->name('pendaftaran.baru');
 
 Route::group(['prefix' => '/auth/master', 'as' => 'admin.'], function(){
     Route::get('/masuk', [LoginController::class, 'getLogin'])->name('login');

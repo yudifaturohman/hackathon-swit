@@ -49,7 +49,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto nav-pills">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Home Camp</a>
+                                    <a class="nav-link" href="{{ route('home-camp') }}">Home Camp</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#" data-toggle="modal" data-target="#search">Hotel</a>
