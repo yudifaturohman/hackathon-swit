@@ -37,4 +37,19 @@ class PageFrontend extends Controller
         // dd($listTravelAdvisor);
         return view('front-layouts/hotel', compact('listTravelAdvisor'));
     }
+
+    public function pageDetailHotel($location_id)
+    {
+        $detailApiListTravelAdvisor = Http::withHeaders([
+            'x-rapidapi-key' => 'f331993f12mshcbec11f26fac5d9p16ed0fjsn49ef1fa3f32d',
+            'x-rapidapi-host' => 'travel-advisor.p.rapidapi.com'
+        ])->get('https://travel-advisor.p.rapidapi.com/hotels/get-details', [
+            'location_id' => $location_id,
+            'currency' => 'IDR',
+        ]);
+
+        $detailListTravelAdvisor = $detailApiListTravelAdvisor->json();
+
+        return view('front-layouts/detail-hotel', compact('detailListTravelAdvisor'));
+    }
 }

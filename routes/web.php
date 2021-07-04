@@ -18,7 +18,7 @@ use App\Http\Controllers\PageFrontend;
 
 Route::get('/', [PageFrontend::class, 'index'])->name('index');
 Route::get('/hotel', [PageFrontend::class, 'pageHotel'])->name('hotel');
-
+Route::get('/detail-hotel/{location_id}', [PageFrontend::class, 'pageDetailHotel'])->name('detail.hotel');
 
 Route::group(['prefix' => '/auth/master', 'as' => 'admin.'], function(){
     Route::get('/masuk', [LoginController::class, 'getLogin'])->name('login');
