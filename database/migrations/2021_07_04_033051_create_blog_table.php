@@ -19,6 +19,7 @@ class CreateBlogTable extends Migration
             $table->index('idBlog');
             $table->string('idAdministrator', 10);
             $table->foreign('idAdministrator')->references('idAdministrator')->on('administrator')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('judul');
             $table->string('slug');
             $table->text('konten');
             $table->text('gambar');

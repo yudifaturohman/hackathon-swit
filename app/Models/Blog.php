@@ -11,7 +11,7 @@ class Blog extends Model
     use HasFactory, AutoNumberTrait;
 
     protected $table = "blog";
-    protected $fillable = ['idBlog','idAdministrator','slug','konten','gambar'];
+    protected $fillable = ['idBlog','idAdministrator','judul','slug','konten','gambar'];
 
     public function getAutoNumberOptions()
     {

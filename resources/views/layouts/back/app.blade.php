@@ -57,9 +57,9 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{route('admin.blog')}}" class='sidebar-link'>
                                 <i class="bi bi-broadcast"></i>
-                                <span>Informasi Terbaru</span>
+                                <span>Blog</span>
                             </a>
                         </li>
 
@@ -75,15 +75,6 @@
                                 <li class="submenu-item ">
                                     <a href="{{route('admin.barang')}}">Barang</a>
                                 </li>
-                                <li class="submenu-item ">
-                                    <a href="#">Cerbung</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="#">Cerbung Episode</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="#">Jurnal</a>
-                                </li>
                             </ul>
                         </li>
 
@@ -95,11 +86,11 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.keluar') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class='sidebar-link'>
                                 <i class="bi bi-signpost"></i>
                                 <span>Keluar</span>
                             </a>
-                            <form id="logout-form" action="#" method="POST">
+                            <form id="logout-form" action="{{ route('admin.keluar') }}" method="POST">
                                 @csrf
                             </form>
                         </li>

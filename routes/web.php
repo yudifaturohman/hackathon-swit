@@ -19,20 +19,33 @@ Route::get('/', function () {
     return view('front-layouts/home');
 });
 
-Route::get('/masuk', [LoginController::class, 'getLogin'])->name('login');
 
 Route::group(['prefix' => '/auth/master', 'as' => 'admin.'], function(){
+    Route::get('/masuk', [LoginController::class, 'getLogin'])->name('login');
+    Route::post('/masuk', [LoginController::class, 'postLogin']);
 
-    Route::get('/dashboard', [AdministratorController::class, 'index'])->name('dashboard');
-    Route::get('/pengguna', [AdministratorController::class, 'halamanPengguna'])->name('pengguna');
-    
-    Route::group(['prefix' => 'penyedia-jasa'], function() {
-        Route::get('/', [AdministratorController::class, 'halamanPenyediaJasa'])->name('penyedia-jasa');
-        Route::post('/save', [AdministratorController::class, 'halamanPenyediaJasaSave'])->name('penyedia-jasa.save');
+    Route::group(['middleware' => 'auth:masterauth'], function() {
+
+        Route::get('/dashboard', [AdministratorController::class, 'index'])->name('dashboard');
+        Route::get('/pengguna', [AdministratorController::class, 'halamanPengguna'])->name('pengguna');
+        
+        Route::group(['prefix' => 'penyedia-jasa'], function() {
+            Route::get('/', [AdministratorController::class, 'halamanPenyediaJasa'])->name('penyedia-jasa');
+            Route::post('/save', [AdministratorController::class, 'halamanPenyediaJasaSave'])->name('penyedia-jasa.save');
+        });
+
+        Route::group(['prefix' => 'barang'], function() {
+            Route::get('/', [AdministratorController::class, 'halamanBarang'])->name('barang');
+            Route::post('/save', [AdministratorController::class, 'halamanBarangSave'])->name('barang.save');
+        });
+
+        Route::group(['prefix' => 'blog'], function() {
+            Route::get('/', [AdministratorController::class, 'halamanBlog'])->name('blog');
+            Route::post('/save', [AdministratorController::class, 'halamanBlogSave'])->name('blog.save');
+        });
+
+        Route::post('/logout', [LoginController::class, 'postLogout'])->name('keluar');
+
     });
 
-    Route::group(['prefix' => 'barang'], function() {
-        Route::get('/', [AdministratorController::class, 'halamanBarang'])->name('barang');
-        Route::post('/save', [AdministratorController::class, 'halamanBarangSave'])->name('barang.save');
-    });
 });

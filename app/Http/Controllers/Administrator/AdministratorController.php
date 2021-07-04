@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\PenyediaJasa as ModelPenyediaJasa;
 use App\Models\Barang as ModelBarang;
+use App\Models\Blog as ModelBlog;
 
 class AdministratorController extends Controller
 {
@@ -90,6 +91,41 @@ class AdministratorController extends Controller
             'harga'             => $request->get('harga'),
             'gambar'            => $filenameSimpan,
             'stok'              => $request->get('stok'),
+        ]);
+
+        session()->flash('message', 'Data berhasil ditambahkan.');
+        return redirect()->back();
+    }
+
+    public function halamanBlog()
+    {
+        return view('administrator.blog');
+    }
+
+    public function halamanBlogSave(Request $request)
+    {
+        $this->validate($request, [
+            'judul' => 'required|min:3|max:255',
+            'konten' => 'required|min:3',
+            'gambar' => 'required|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        if ($request->hasFile('gambar')) {
+            $filenameWithExt = Str::slug($request->get('judul'));
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('gambar')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('gambar')->move('storage/blog/', $filenameSimpan);
+        }else{
+            $filenameSimpan = '';
+        }
+
+        ModelBlog::create([
+            'idAdministrator'       => 'ADM001',
+            'judul'                 => $request->get('judul'),
+            'slug'                  => Str::slug($request->get('judul')),
+            'konten'                => $request->get('konten'),
+            'gambar'                => $filenameSimpan,
         ]);
 
         session()->flash('message', 'Data berhasil ditambahkan.');

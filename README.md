@@ -23,6 +23,7 @@ Onta (Online Travel Agent)
 - Blog
   - idBlog
   - idAdministrator
+  - judul
   - slug
   - konten
   - gambar
