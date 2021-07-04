@@ -32,7 +32,7 @@
                 <div class="container">
                     <!-- navbar -->
                     <nav class="navbar navbar-expand-lg navbar-light px-sm-0">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="{{ route('index') }}">
                             <img class="logo" src="{{ asset('front/img/onta.png') }}" alt="logo" />
                         </a>
 
@@ -49,14 +49,14 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto nav-pills">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Camp</a>
+                                    <a class="nav-link" href="">Home Camp</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Hotel</a>
+                                    <a class="nav-link" href="#" data-toggle="modal" data-target="#search">Hotel</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="">ART</a>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link" href="">Hubungi Kami</a>
                                 </li>
@@ -96,7 +96,7 @@
                                     <div class="row">
                                         <div class="col-md-5 my-auto">
                                             <div class="banner_title">
-                                                <h1>Camp</h1>
+                                                <h1>Home Camp</h1>
                                                 <p>
                                                     Lorem Ipsum is simply dummy text of the printing and typesetting
                                                     industry. Lorem
@@ -107,7 +107,7 @@
                                         </div>
                                         <div class="col-md-7">
                                             <img class="ill_05"
-                                                src="{{ asset('front/img/agency/clip-home-plants.png') }}" />
+                                                src="{{ asset('front/img/agency/staycation.png') }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                                         </div>
                                         <div class="col-md-7">
                                             <img class="ill_05"
-                                                src="{{ asset('front/img/agency/travel_plans.png') }}" />
+                                                src="{{ asset('front/img/agency/clip-home-plants.png') }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@
                         <div class="row">
                             <div class="col-lg-12 emo mb-4 mb-lg-0">
                                 <div class="gq_item bg-onta">
-                                    <span class="d-block c-white font-s-24">Penyedia Jasa Camp Kami</span>
+                                    <span class="d-block c-white font-s-24 text-center">Penyedia Jasa Camp Kami</span>
                                     <div class="row" style="padding-top:40px; text-align:center; color:white">
                                         <div class="col-md-3">
                                             <div class="av_person">
@@ -263,86 +263,524 @@
                 <!-- End. About -->
 
                 <!-- Start Services -->
-                {{-- <section class="products_section product_demo2 features_hosting service_demo3 margin-t-8 padding-t-10"
+                <section class="products_section product_demo2 features_hosting service_demo3 margin-t-8 padding-t-10"
                     id="Services" style="padding-bottom: 0 !important;">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-lg-4 margin-b-3">
-                                <div class="title_sections mb-0">
-                                    <div class="before_title">
-                                        <span>Tata Cara</span>
+                        <section class="services_section margin-b-6">
+                            <div class="container">
+                                <div class="row justify-content-center text-center">
+                                    <div class="col-lg-5">
+                                        <div class="title_sections_inner margin-b-5">
+                                            <h2>Buka jasa Camp mu di sini dengan 3 langkah mudah</h2>
+                                        </div>
                                     </div>
-                                    <h2>Kenali Alurnya</h2>
-                                    <p>
-                                        Untuk memudahkan pengajuan permohonan informasi kenali dulu yuk alur atau tata
-                                        cara nya
-                                    </p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                        <div class="items_serv">
+                                            <div class="media">
+                                                <div class="item-img">
+                                                    <img src="{{ asset('front/img/icons/name.svg') }}" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="txt-small">
+                                                        <span>Langkah 1</span>
+                                                    </div>
+                                                    <h3>Daftar Akun Baru</h3>
+                                                    <p>
+                                                        Melakukan pendaftaran akun baru secara gratis lalu lakukan
+                                                        verifikasi melalui email yang di daftarkan.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                        <div class="items_serv">
+                                            <div class="media">
+                                                <div class="item-img">
+                                                    <img src="{{ asset('front/img/icons/phone.svg') }}" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="txt-small">
+                                                        <span>Langkah 2</span>
+                                                    </div>
+                                                    <h3>Daftarkan Jasa Camp mu</h3>
+                                                    <p>
+                                                        Daftarkan jasa camp mu dengan mudah
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                                        <div class="items_serv">
+                                            <div class="media">
+                                                <div class="item-img">
+                                                    <img src="{{ asset('front/img/icons/discount.svg') }}" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="txt-small">
+                                                        <span>Langkah 3</span>
+                                                    </div>
+                                                    <h3>Share ke Media Sosial</h3>
+                                                    <p>
+                                                        Lakukan share ke media sosial untuk lebih banyak mendapatkan
+                                                        client anda.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-7 ml-sm-auto">
-                                <div class="row">
-                                    <div class="col-md-6 item pr-sm-5 mb-3 mb-sm-5">
-                                        <div class="item_pro" data-aos="fade-up" data-aos-delay="0">
-                                            <div class="icon_t">
-                                                <img src="../../assets/img/icons/Employee.svg" />
+                        </section>
+                    </div>
+                    <!-- .container -->
+                </section>
+                <!-- End. Services -->
+
+                <section class="test_monials__workspace margin-t-2 padding-t-6" id="Testimonial">
+                    <div class="container-fluid">
+                        <div class="box__others">
+                            <div class="row">
+                                <div class="col-lg-5 pl-lg-0">
+                                    <div class="img__people">
+                                        <img src="{{ asset('front/img/workspace/others.svg')}}" alt="">
+                                        <div class="col-lg-5 item_title">
+                                            <div class="title_sections">
+                                                <div class="before_title">
+                                                    <span class="c-orange-red">Testimonial</span>
+                                                </div>
+                                                <h2>Apa yang di katakan client anda</h2>
                                             </div>
-                                            <h3>Proses Registrasi</h3>
-                                            <p>
-                                                <ol>
-                                                    <li>Melakukan Pendaftaran</li>
-                                                    <li>Verifikasi E-Mail</li>
-                                                    <li>Masuk (Login)</li>
-                                                </ol>
-                                            </p>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 item pr-sm-5 mb-3 mb-sm-5">
-                                        <div class="item_pro" data-aos="fade-up" data-aos-delay="100">
-                                            <div class="icon_t">
-                                                <img src="../../assets/img/icons/Binocular.svg" />
+                                </div>
+                                <div class="col-lg-5 my-lg-auto mx-auto">
+                                    <div class="people__say">
+                                        <div
+                                            class="swiper-container gallery-top swipe_circle swiper-container-initialized swiper-container-horizontal">
+                                            <!-- item Users -->
+                                            <div
+                                                class="person_thumbs swiper-container-initialized swiper-container-horizontal swiper-container-free-mode swiper-container-thumbs">
+                                                <div class="swiper-wrapper"
+                                                    style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                                                    <div class="swiper-slide swiper-slide-visible swiper-slide-active swiper-slide-thumb-active"
+                                                        style="width: 143.25px; margin-right: 10px;">
+                                                        <img class="pagination rounded-circle"
+                                                            src="{{ asset('front/img/persons/01.png') }}">
+                                                    </div>
+                                                    <div class="swiper-slide swiper-slide-visible swiper-slide-next"
+                                                        style="width: 143.25px; margin-right: 10px;">
+                                                        <img class="pagination rounded-circle"
+                                                            src="{{ asset('front/img/persons/01.png') }}">
+                                                    </div>
+                                                    <div class="swiper-slide swiper-slide-visible"
+                                                        style="width: 143.25px; margin-right: 10px;">
+                                                        <img class="pagination rounded-circle"
+                                                            src="{{ asset('front/img/persons/01.png') }}">
+                                                    </div>
+                                                    <div class="swiper-slide swiper-slide-visible"
+                                                        style="width: 143.25px; margin-right: 10px;">
+                                                        <img class="pagination rounded-circle"
+                                                            src="{{ asset('front/img/persons/01.png') }}">
+                                                    </div>
+                                                    <div class="swiper-slide swiper-slide-visible"
+                                                        style="width: 143.25px; margin-right: 10px;">
+                                                        <img class="pagination rounded-circle"
+                                                            src="{{ asset('front/img/persons/01.png') }}">
+                                                    </div>
+                                                </div>
+                                                <span class="swiper-notification" aria-live="assertive"
+                                                    aria-atomic="true"></span>
                                             </div>
-                                            <h3>Ajuin Permohonan</h3>
-                                            <p>
-                                                <ol>
-                                                    <li>Lengkapi Profil Kamu</li>
-                                                    <li>Ajuin Permohonon Informasi atau Keberatan </li>
-                                                </ol>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 item pr-sm-5 mb-3 mb-sm-5">
-                                        <div class="item_pro" data-aos="fade-up" data-aos-delay="200">
-                                            <div class="icon_t">
-                                                <img src="../../assets/img/icons/Shield-check.svg" />
+                                            <!-- item content -->
+                                            <div class="swiper-wrapper"
+                                                style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                                                <div class="swiper-slide swiper-slide-active"
+                                                    style="width: 603px; margin-right: 10px;">
+                                                    <div class="img__user">
+                                                        <img src="{{ asset('front/img/persons/04.png') }}" alt="">
+                                                    </div>
+                                                    <div class="username👨">
+                                                        <h4>Rosa J. Lightfoot</h4>
+                                                        <span>Loan processing clerk</span>
+                                                    </div>
+                                                    <div class="content col-md-8 mx-auto text-center">
+                                                        "Impressed with master class support of the team and really look
+                                                        forward for the
+                                                        future.Really, really well made! Love that each component is
+                                                        handmade and customised.
+                                                        Great
+                                                        Work!"
+                                                    </div>
+                                                    <div class="stars__rate">
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide swiper-slide-next"
+                                                    style="width: 603px; margin-right: 10px;">
+                                                    <div class="img__user">
+                                                        <img src="{{ asset('front/img/persons/15.png') }}" alt="">
+                                                    </div>
+                                                    <div class="username👨">
+                                                        <h4>Angel G. Wilson</h4>
+                                                        <span>Military occupation</span>
+                                                    </div>
+                                                    <div class="content col-md-8 mx-auto text-center">
+                                                        "Impressed with master class support of the team and really look
+                                                        forward for the
+                                                        future.Really, really well made! Love that each component is
+                                                        handmade and customised.
+                                                        Great
+                                                        Work!"
+                                                    </div>
+                                                    <div class="stars__rate">
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide" style="width: 603px; margin-right: 10px;">
+                                                    <div class="img__user">
+                                                        <img src="{{ asset('front/img/persons/03.png') }}" alt="">
+                                                    </div>
+                                                    <div class="username👨">
+                                                        <h4>Troy D. Snead</h4>
+                                                        <span>UI Developer</span>
+                                                    </div>
+                                                    <div class="content col-md-8 mx-auto text-center">
+                                                        "Impressed with master class support of the team and really look
+                                                        forward for the
+                                                        future.Really, really well made! Love that each component is
+                                                        handmade and customised.
+                                                        Great
+                                                        Work!"
+                                                    </div>
+                                                    <div class="stars__rate">
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide" style="width: 603px; margin-right: 10px;">
+                                                    <div class="img__user">
+                                                        <img src="{{ asset('front/img/persons/02.png') }}" alt="">
+                                                    </div>
+                                                    <div class="username👨">
+                                                        <h4>Nona J. Franklin</h4>
+                                                        <span>Material scheduling</span>
+                                                    </div>
+                                                    <div class="content col-md-8 mx-auto text-center">
+                                                        "Impressed with master class support of the team and really look
+                                                        forward for the
+                                                        future.Really, really well made! Love that each component is
+                                                        handmade and customised.
+                                                        Great
+                                                        Work!"
+                                                    </div>
+                                                    <div class="stars__rate">
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide" style="width: 603px; margin-right: 10px;">
+                                                    <div class="img__user">
+                                                        <img src="{{ asset('front/img/persons/01.png') }}" alt="">
+                                                    </div>
+                                                    <div class="username👨">
+                                                        <h4>John M. Davalos</h4>
+                                                        <span>Attorney</span>
+                                                    </div>
+                                                    <div class="content col-md-8 mx-auto text-center">
+                                                        "Impressed with master class support of the team and really look
+                                                        forward for the
+                                                        future.Really, really well made! Love that each component is
+                                                        handmade and customised.
+                                                        Great
+                                                        Work!"
+                                                    </div>
+                                                    <div class="stars__rate">
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                        <i class="tio star"></i>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <h3>Proses Verifikasi Pengajuan</h3>
-                                            <ol>
-                                                <li>Tahap 1 (Penerimaan Informasi)</li>
-                                                <li>Tahap 2 (Kelengkapan Informasi)</li>
-                                                <li>Tahap 3 (Analisa Permintaan)</li>
-                                                <li>Tahap 4 (Pemberitahuan Tertulis)</li>
-                                            </ol>
+                                            <span class="swiper-notification" aria-live="assertive"
+                                                aria-atomic="true"></span>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 item pr-sm-5">
-                                        <div class="item_pro" data-aos="fade-up" data-aos-delay="300">
-                                            <div class="icon_t">
-                                                <img src="../../assets/img/icons/Door-open.svg" />
-                                            </div>
-                                            <h3>Selesai</h3>
-                                            <p>
-                                                Pengajuan permohonan telah selesai nanti bakal ada pemberitahuan bahwa
-                                                semua proses pengajuan telah sesuai
-                                            </p>
+                                        <div class="simple__particles">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
                                         </div>
+                                        <!-- End Swiper -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- .container -->
-                </section> --}}
-                <!-- End. Services -->
+                </section>
+
+                <section class="section__stories blog_slider padding-t-9">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-12">
+                                <div class="swip__stories">
+                                    <!-- Swiper -->
+                                    <div
+                                        class="swiper-container blog-slider swiper-container-initialized swiper-container-horizontal">
+                                        <div class="title_sections_inner">
+                                            <h2>Yuk ikuti tips agar nyaman saat staycation di rumah</h2>
+                                        </div>
+                                        <div class="swiper-wrapper"
+                                            style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+
+                                            <div class="swiper-slide swiper-slide-active"
+                                                style="width: 350px; margin-right: 30px;">
+                                                <div class="grid_blog_avatar">
+                                                    <div class="cover_blog">
+                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                                    </div>
+                                                    <div class="body_blog">
+                                                        <a href="#">
+                                                            <div class="person media">
+                                                                <img src="{{ asset('front/img/persons/01.png') }}"
+                                                                    alt="">
+                                                                <div class="media-body">
+                                                                    <div class="txt">
+                                                                        <h3>Olivia DeSmit</h3>
+                                                                        <time>27 Sep, 2020</time>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a href="single-blog.html" class="link_blog">
+                                                            <h4 class="title_blog">
+                                                                As climate warms, Ecuador fights fires with forecasts
+                                                            </h4>
+                                                            <p class="short_desc">
+                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                                viverra ipsum
+                                                                nunc aliquet .
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <!-- End grid_blog_avatar -->
+                                            </div>
+
+                                            <div class="swiper-slide swiper-slide-next"
+                                                style="width: 350px; margin-right: 30px;">
+                                                <div class="grid_blog_avatar">
+                                                    <div class="cover_blog">
+                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                                    </div>
+                                                    <div class="body_blog">
+                                                        <a href="#">
+                                                            <div class="person media">
+                                                                <img src="{{ asset('front/img/persons/01.png') }}"
+                                                                    alt="">
+                                                                <div class="media-body">
+                                                                    <div class="txt">
+                                                                        <h3>Paul Brasseur</h3>
+                                                                        <time>30 Sep, 2020</time>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                        <a href="single-blog.html" class="link_blog">
+                                                            <h4 class="title_blog">
+                                                                Funds adding fuel in tech’s climate race
+                                                            </h4>
+                                                            <p class="short_desc">
+                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                                viverra ipsum nunc aliquet .
+                                                            </p>
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                                <!-- End grid_blog_avatar -->
+                                            </div>
+
+                                            <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
+                                                <div class="grid_blog_avatar">
+                                                    <div class="cover_blog">
+                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                                    </div>
+                                                    <div class="body_blog">
+                                                        <a href="#">
+                                                            <div class="person media">
+                                                                <img src="{{ asset('front/img/persons/01.png') }}"
+                                                                    alt="">
+                                                                <div class="media-body">
+                                                                    <div class="txt">
+                                                                        <h3>Merlin Roux</h3>
+                                                                        <time>24 Sep, 2020</time>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                        <a href="single-blog.html" class="link_blog">
+                                                            <h4 class="title_blog">
+                                                                Satellite tags shed light on sea turtle treks
+                                                            </h4>
+                                                            <p class="short_desc">
+                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                                viverra ipsum nunc aliquet .
+                                                            </p>
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                                <!-- End grid_blog_avatar -->
+                                            </div>
+
+                                            <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
+                                                <div class="grid_blog_avatar">
+                                                    <div class="cover_blog">
+                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                                    </div>
+                                                    <div class="body_blog">
+                                                        <a href="#">
+                                                            <div class="person media">
+                                                                <img src="{{ asset('front/img/persons/01.png') }}"
+                                                                    alt="">
+                                                                <div class="media-body">
+                                                                    <div class="txt">
+                                                                        <h3>Olivia DeSmit</h3>
+                                                                        <time>27 Sep, 2020</time>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a href="single-blog.html" class="link_blog">
+                                                            <h4 class="title_blog">
+                                                                As climate warms, Ecuador fights fires with forecasts
+                                                            </h4>
+                                                            <p class="short_desc">
+                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                                viverra ipsum
+                                                                nunc aliquet .
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <!-- End grid_blog_avatar -->
+                                            </div>
+
+                                            <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
+                                                <div class="grid_blog_avatar">
+                                                    <div class="cover_blog">
+                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                                    </div>
+                                                    <div class="body_blog">
+                                                        <a href="#">
+                                                            <div class="person media">
+                                                                <img src="{{ asset('front/img/persons/01.png') }}"
+                                                                    alt="">
+                                                                <div class="media-body">
+                                                                    <div class="txt">
+                                                                        <h3>Paul Brasseur</h3>
+                                                                        <time>30 Sep, 2020</time>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                        <a href="single-blog.html" class="link_blog">
+                                                            <h4 class="title_blog">
+                                                                Funds adding fuel in tech’s climate race
+                                                            </h4>
+                                                            <p class="short_desc">
+                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                                viverra ipsum nunc aliquet .
+                                                            </p>
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                                <!-- End grid_blog_avatar -->
+                                            </div>
+
+                                            <div class="swiper-slide" style="width: 350px; margin-right: 30px;">
+                                                <div class="grid_blog_avatar">
+                                                    <div class="cover_blog">
+                                                        <img src="{{ asset('front/img/inner/6450.png') }}" alt="">
+                                                    </div>
+                                                    <div class="body_blog">
+                                                        <a href="#">
+                                                            <div class="person media">
+                                                                <img src="{{ asset('front/img/persons/01.png') }}"
+                                                                    alt="">
+                                                                <div class="media-body">
+                                                                    <div class="txt">
+                                                                        <h3>Merlin Roux</h3>
+                                                                        <time>24 Sep, 2020</time>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+
+                                                        <a href="single-blog.html" class="link_blog">
+                                                            <h4 class="title_blog">
+                                                                Satellite tags shed light on sea turtle treks
+                                                            </h4>
+                                                            <p class="short_desc">
+                                                                Vitae semper quis lectus nulla at volutpat diam. Sed
+                                                                viverra ipsum nunc aliquet .
+                                                            </p>
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                                <!-- End grid_blog_avatar -->
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <!-- Add Arrows -->
+                                        <div class="swiper-button-next" tabindex="0" role="button"
+                                            aria-label="Next slide" aria-disabled="false">
+                                            <i class="tio chevron_right"></i>
+                                        </div>
+                                        <div class="swiper-button-prev swiper-button-disabled" tabindex="0"
+                                            role="button" aria-label="Previous slide" aria-disabled="true">
+                                            <i class="tio chevron_left"></i>
+                                        </div>
+
+                                        <span class="swiper-notification" aria-live="assertive"
+                                            aria-atomic="true"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
 
             </main>
             <!-- end main -->
@@ -382,7 +820,7 @@
                             <h4>Menu</h4>
                             <a class="nav-link" href="">Camp</a>
                             <a class="nav-link" href="">Hotel</a>
-                            <a class="nav-link" href="">ART</a>
+                            {{-- <a class="nav-link" href="">ART</a> --}}
                             <a class="nav-link" href="">Hubungi Kami</a>
                         </div>
                     </div>
@@ -446,6 +884,32 @@
         <!-- End. Loader -->
     </div>
     <!-- End. wrapper -->
+    <!-- Modal -->
+    <div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="searchLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('hotel') }}" method="GET">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Lokasi</label>
+                            <input name="pencarian" type="search" class="form-control" placeholder="Anyer">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn_sm_primary p bg-orange-red c-white rounded-5">
+                            <i class="tio search mr-1 align-middle font-s-16"></i>
+                            <span>Cari Hotel</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="{{ asset('front/js/jquery-3.5.0.js') }}" type="text/javascript"></script>
     <script src="{{ asset('front/js/jquery-migrate.min.js') }}" type="text/javascript"></script>

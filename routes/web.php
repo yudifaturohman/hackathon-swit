@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Administrator\AdministratorController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PageFrontend;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,8 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('front-layouts/home');
-});
+Route::get('/', [PageFrontend::class, 'index'])->name('index');
+Route::get('/hotel', [PageFrontend::class, 'pageHotel'])->name('hotel');
 
 
 Route::group(['prefix' => '/auth/master', 'as' => 'admin.'], function(){
