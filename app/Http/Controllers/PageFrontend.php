@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Blog;
 use App\Models\PenyediaJasa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
