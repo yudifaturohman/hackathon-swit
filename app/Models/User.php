@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-// use Yudi1212\AutoNumber\AutoNumberTrait;
+use Yudi1212\AutoNumber\AutoNumberTrait;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
-    // use AutoNumberTrait;
+    use AutoNumberTrait;
     use HasFactory;
     use SoftDeletes;
     use Notifiable;
@@ -25,12 +25,14 @@ class User extends Authenticatable
      *
      * @var array
      */
+    protected $table = "users";
+
     protected $fillable = [
         'idPengguna',
         'nama',
         'email',
         'password',
-        'tlp',
+        'telp',
         'status',
         'activation_token',
     ];
@@ -43,6 +45,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+    ];
+
+    public function getAutoNumberOptions()
+    {
+        return [
+            'idPengguna' => [
+                'format' => 'USR?', 
+                'length' => 3 
+            ]
+        ];
+    }
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
         'activation_token',
     ];
 }

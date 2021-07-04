@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($pengguna as $item)
+            @foreach ($user as $item)
             <tr>
                 <td>{{$loop->index + 1}}</td>
                 <td>{{$item->nama}}</td>
@@ -40,8 +40,8 @@
         </tbody>
     </table>
 
-    {{ $pengguna->links() }}
+    {{ $user->links() }}
 
     {{-- Modal --}}
-    @include('livewire.administrator.pengguna.create')
+    @include('livewire.administrator.user.create')
 </div>

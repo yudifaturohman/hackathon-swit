@@ -31,7 +31,7 @@ Pengguna
                 </button>
             </div>
             <div class="card-body">
-                <livewire:administrator.pengguna.pengguna />
+                <livewire:administrator.user.user />
             </div>
         </div>
     </section>

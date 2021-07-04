@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Barang as ModelBarang;
 use App\Models\PenyediaJasa as ModelPenyediaJasa;
-use App\Models\Pengguna as ModelPengguna;
+use App\Models\User as ModelUsers;
 use File;
 
 class Barang extends Component
@@ -21,14 +21,14 @@ class Barang extends Component
 
     public function render()
     {
-        $pengguna = ModelPengguna::orderBy('nama','ASC')
+        $pengguna = ModelUsers::orderBy('nama','ASC')
         ->get();
         $penyediaJasa = ModelPenyediaJasa::orderBy('namaToko','ASC')
         ->get();
 
         return view('livewire.administrator.barang.barang', [
-            'barang' => ModelBarang::select('barang.*', 'pengguna.nama', 'penyedia_jasa.namaToko')
-            ->join('pengguna', 'pengguna.idPengguna', '=', 'barang.idPengguna')
+            'barang' => ModelBarang::select('barang.*', 'users.nama', 'penyedia_jasa.namaToko')
+            ->join('users', 'users.idPengguna', '=', 'barang.idPengguna')
             ->join('penyedia_jasa', 'penyedia_jasa.idJasa', '=', 'barang.idJasa')
             ->orderBy('namaBarang','ASC')
             ->where('namaBarang', 'like', '%'.$this->search.'%')

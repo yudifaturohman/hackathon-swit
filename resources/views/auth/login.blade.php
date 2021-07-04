@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('back/assets/vendors/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('back/assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('back/assets/css/pages/auth.css') }}">
+    <link rel="shortcut icon" href="{{ asset('back/assets/images/onta.ico') }}" width="100px" type="image/x-icon">
 </head>
 
 <body>
@@ -45,6 +46,9 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
                     </form>
+                    <div class="text-center mt-5 text-lg fs-4">
+                        
+                    </div>
                     <footer>
                         <div class="footer text-center clearfix mb-0 text-muted">
                             <p>2021 &copy; ONTA - Online Travel Agent</p>

@@ -52,8 +52,8 @@ class PageFrontend extends Controller
 
     public function pagePenyediaJasa()
     {
-        $penyediaJasa = PenyediaJasa::select('penyedia_jasa.*', 'pengguna.nama')
-        ->join('pengguna', 'pengguna.idPengguna', '=', 'penyedia_jasa.idPengguna')
+        $penyediaJasa = PenyediaJasa::select('penyedia_jasa.*', 'users.nama')
+        ->join('users', 'users.idPengguna', '=', 'penyedia_jasa.idPengguna')
         ->orderBy('namaToko','ASC')
         ->paginate(10);
 
@@ -62,15 +62,15 @@ class PageFrontend extends Controller
 
     public function pageDetailProduk($detail_id)
     {
-        $penyediaJasa = PenyediaJasa::select('penyedia_jasa.*', 'pengguna.nama')
-        ->join('pengguna', 'pengguna.idPengguna', '=', 'penyedia_jasa.idPengguna')
+        $penyediaJasa = PenyediaJasa::select('penyedia_jasa.*', 'users.nama')
+        ->join('users', 'users.idPengguna', '=', 'penyedia_jasa.idPengguna')
         ->orderBy('namaToko','ASC')
         ->where('penyedia_jasa.idJasa', $detail_id)
         ->first();
 
         $penyediaJasaBarang = Barang::select('barang.*', 'penyedia_jasa.namaToko', 'penyedia_jasa.idJasa' ,'pengguna.nama')
         ->join('penyedia_jasa', 'penyedia_jasa.idJasa', '=', 'barang.idJasa')
-        ->join('pengguna', 'pengguna.idPengguna', '=', 'penyedia_jasa.idPengguna')
+        ->join('users', 'users.idPengguna', '=', 'penyedia_jasa.idPengguna')
         ->orderBy('namaToko','ASC')
         ->where('penyedia_jasa.idJasa', $detail_id)
         ->paginate(10);

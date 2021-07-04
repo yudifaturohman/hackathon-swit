@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Review as ModelReview;
 use App\Models\PenyediaJasa as ModelPenyediaJasa;
-use App\Models\Pengguna as ModelPengguna;
+use App\Models\User as ModelUsers;
 
 class Review extends Component
 {
@@ -19,14 +19,14 @@ class Review extends Component
 
     public function render()
     {
-        $pengguna = ModelPengguna::orderBy('nama','ASC')
+        $pengguna = ModelUsers::orderBy('nama','ASC')
         ->get();
         $penyediaJasa = ModelPenyediaJasa::orderBy('namaToko','ASC')
         ->get();
 
         return view('livewire.administrator.review.review', [
-            'reviewRating' => ModelReview::select('review.*', 'pengguna.nama', 'penyedia_jasa.namaToko')
-            ->join('pengguna', 'pengguna.idPengguna', '=', 'review.idPengguna')
+            'reviewRating' => ModelReview::select('review.*', 'users.nama', 'penyedia_jasa.namaToko')
+            ->join('users', 'users.idPengguna', '=', 'review.idPengguna')
             ->join('penyedia_jasa', 'penyedia_jasa.idJasa', '=', 'review.idJasa')
             ->orderBy('created_at','DESC')
             ->where('nama', 'like', '%'.$this->search.'%')
