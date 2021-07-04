@@ -18,6 +18,7 @@ use App\Http\Controllers\PageFrontend;
 
 Route::get('/', [PageFrontend::class, 'index'])->name('index');
 Route::get('/home-camp', [PageFrontend::class, 'pagePenyediaJasa'])->name('home-camp');
+Route::get('/home-camp/{detail_id}', [PageFrontend::class, 'pageDetailProduk'])->name('home-camp.detail');
 Route::get('/hotel', [PageFrontend::class, 'pageHotel'])->name('hotel');
 Route::get('/detail-hotel/{location_id}', [PageFrontend::class, 'pageDetailHotel'])->name('detail.hotel');
 

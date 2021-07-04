@@ -94,7 +94,7 @@
                             <div class="col-md-8 col-lg-6">
                                 <div class="banner_title_inner margin-b-3">
                                     <h1 data-aos="fade-up" data-aos-delay="0">
-                                        Penyedia Jasa Camp 
+                                        {{ $penyediaJasa->namaToko }}
                                     </h1>
                                     <p data-aos="fade-up" data-aos-delay="100">
                                         Temukan Jasa Camp Untuk Halaman Rumah Anda
@@ -112,16 +112,16 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="title_sections_inner">
-                                    <h2>Penyedia Jasa</h2>
+                                    <h2>Penyedia Jasa Barang Yang di Sewakan</h2>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            @foreach ($penyediaJasa as $item)
+                            @foreach ($penyediaJasaBarang as $item)
                             <div class="col-md-6 col-lg-4">
                                 <div class="grid_blog_avatar">
                                     <div class="cover_blog">
-                                        <img src="{{ url(Storage::url('penyedia_jasa/'.$item->gambar)) }}" lazy="loading">
+                                        <img src="{{ url(Storage::url('barang/'.$item->gambar)) }}" lazy="loading">
                                     </div>
                                     <div class="body_blog">
                                         <a href="#">
@@ -129,14 +129,15 @@
                                                 <img src="{{ asset('front/img/persons/03.png') }}" alt="">
                                                 <div class="media-body">
                                                     <div class="txt">
-                                                        <h3>{{ $item->nama }}</h3>
+                                                        <h3>Rp. {{ number_format($item->harga,2) }}</h3>
+                                                        <p>Stok : {{ $item->stok }}</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </a>
-                                        <a href="{{ route('home-camp.detail', $item->idJasa) }}" class="link_blog" target="_blank">
+                                        <a href="#" class="link_blog" target="_blank">
                                             <h4 class="title_blog">
-                                                {{ $item->namaToko }}
+                                                {{ $item->namaBarang }}
                                             </h4>
                                             <p class="short_desc">
                                                 {{ $item->deskripsi }}
@@ -147,7 +148,7 @@
                                 <!-- End grid_blog_avatar -->
                             </div>
                             @endforeach
-                            {{ $penyediaJasa->links() }}
+                            {{ $penyediaJasaBarang->links() }}
                         </div>
                     </div>
                 </section>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\PenyediaJasa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -57,5 +58,23 @@ class PageFrontend extends Controller
         ->paginate(10);
 
         return view('front-layouts/penyedia-jasa', compact('penyediaJasa'));
+    }
+
+    public function pageDetailProduk($detail_id)
+    {
+        $penyediaJasa = PenyediaJasa::select('penyedia_jasa.*', 'pengguna.nama')
+        ->join('pengguna', 'pengguna.idPengguna', '=', 'penyedia_jasa.idPengguna')
+        ->orderBy('namaToko','ASC')
+        ->where('penyedia_jasa.idJasa', $detail_id)
+        ->first();
+
+        $penyediaJasaBarang = Barang::select('barang.*', 'penyedia_jasa.namaToko', 'penyedia_jasa.idJasa' ,'pengguna.nama')
+        ->join('penyedia_jasa', 'penyedia_jasa.idJasa', '=', 'barang.idJasa')
+        ->join('pengguna', 'pengguna.idPengguna', '=', 'penyedia_jasa.idPengguna')
+        ->orderBy('namaToko','ASC')
+        ->where('penyedia_jasa.idJasa', $detail_id)
+        ->paginate(10);
+
+        return view('front-layouts/detail-jasa', compact('penyediaJasaBarang', 'penyediaJasa'));
     }
 }
