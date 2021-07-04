@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ asset('back/assets/css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('back/assets/images/favicon.ico') }}" type="image/x-icon">
 
-    {{-- @livewireStyles --}}
+    @livewireStyles
 
 </head>
 
@@ -138,7 +138,7 @@
 
     <script src="{{ asset('back/assets/js/main.js') }}"></script>
 
-    {{-- @livewireScripts --}}
+    @livewireScripts
 
 </body>
 
