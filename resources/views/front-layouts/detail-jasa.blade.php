@@ -112,7 +112,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="title_sections_inner">
-                                    <h2>Penyedia Jasa Barang Yang di Sewakan</h2>
+                                    <h2>Barang Yang di Sewakan</h2>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                             <div class="col-md-6 col-lg-4">
                                 <div class="grid_blog_avatar">
                                     <div class="cover_blog">
-                                        <img src="{{ url(Storage::url('barang/'.$item->gambar)) }}" lazy="loading">
+                                        <img src="{{ url(Storage::url('barang/'.$item->gambar)) }}" loading="lazy">
                                     </div>
                                     <div class="body_blog">
                                         <a href="#">
@@ -129,7 +129,7 @@
                                                 <img src="{{ asset('front/img/persons/03.png') }}" alt="">
                                                 <div class="media-body">
                                                     <div class="txt">
-                                                        <h3>Rp. {{ number_format($item->harga,2) }}</h3>
+                                                        <h3>Harga : Rp. {{ number_format($item->harga,2) }}</h3>
                                                         <p>Stok : {{ $item->stok }}</p>
                                                     </div>
                                                 </div>
